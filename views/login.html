@@ -1,6 +1,5 @@
-<section class="container-fluid mt-5">
+<section class="container-fluid" ng-controller="genericController">
   <div class="row">
-
     <div class="hidden-xs col-sm-8 col-md-7 col-md-offset-1 col-lg-7 col-lg-offset-1 jumbotron">
       <div class="row">
         <div class="col-sm-3">
@@ -21,33 +20,65 @@
       </div>
       <div class="row">
         <div class="col-sm-12 text-right">
-          <a class="btn btn-success btn-lg" href="#" role="button">Nova solicitação</a>
+          <a class="btn btn-success btn-lg" href="solicitacao" role="button">Nova solicitação</a>
         </div>
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-      <div class="breadcrumb">
-        <form>
+      <div class="breadcrumb" ng-hide="esqueceuSenha">
+        <form ng-submit="api('posts/1', 'GET', login, this, 'sucessoLogin', 'erroLogin', efetuarLogin)">
           <div class="form-group">
             <label for="usuario">Usuário</label>
-            <input id="usuario" type="text" class="form-control" placeholder="Usuário" required>
+            <input id="usuario" type="text" class="form-control" ng-model="login.usuario" placeholder="Usuário" required>
           </div>
           <div class="form-group">
             <label for="senha">Senha</label>
-            <input id="senha" type="password" class="form-control" placeholder="Password" required>
+            <input id="senha" type="password" class="form-control" ng-model="login.senha" placeholder="Senha" required>
           </div>
           <div class="form-check">
             <label class="form-check-label">
-              <input type="checkbox" class="form-check-input">
+              <input type="checkbox" class="form-check-input" ng-model="login.permanecerConectado">
               Permanecer conectado
             </label>
+          </div>
+          <div class="form-group">
+            <div class="alert alert-warning" role="alert" ng-hide="erroLogin==undefined">
+              <span class="glyphicon glyphicon-remove"></span>&nbsp;
+              {{erroLogin}}
+            </div>
           </div>
           <div class="row">
             <div class="col-xs-4">
               <button type="submit" class="btn btn-success">Entrar</button>
             </div>
             <div class="col-xs-8 text-right">
-              <a href="#">Esqueceu sua senha?</a>
+              <a href="#" ng-click="esqueceuSenha=true">Esqueceu sua senha?</a>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="breadcrumb" ng-hide="!esqueceuSenha">
+        <form ng-submit="enviarSenha()">
+          <div class="form-group">
+            <label for="usuario">Digite seu E-mail</label>
+            <input id="usuario" type="text" class="form-control" placeholder="E-mail" required>
+          </div>
+          <div class="form-group">
+            <div class="alert alert-success" role="alert" ng-hide="sucessoSenha==undefined">
+              <span class="glyphicon glyphicon-ok"></span>&nbsp;
+                Senha enviada com sucesso! Verifique seu e-mail.
+            </div>
+            <div class="alert alert-warning" role="alert" ng-hide="erroSenha==undefined" >
+              <span class="glyphicon glyphicon-remove"></span>&nbsp;
+              {{erroSenha}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4">
+              <button type="submit" class="btn btn-success">Enviar senha</button>
+            </div>
+            <div class="col-xs-8 text-right">
+              <a href="#" ng-click="esqueceuSenha=false">Lembrei minha senha!</a>
             </div>
           </div>
         </form>

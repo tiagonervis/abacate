@@ -1,12 +1,18 @@
 //Declaracao da aplicacao
-var app = angular.module("app", ['ngRoute', 'ngSanitize', 'ngLocale']);
+var app = angular.module("app", ['ngRoute', 'ngSanitize', 'ngCookies', 'ngLocale']);
+
+//Objeto global de configuracao
+var configs = {
+  urlApi: 'https://jsonplaceholder.typicode.com/'
+};
 
 //Declaracao das rotas
 var rotas = {
+  home: '/home',
   login: '/login',
-  home: '/home'
+  solicitacao: '/solicitacao'
 };
-/*
+
 //Configura app
 app.config(function ($routeProvider, $locationProvider) {
 
@@ -15,9 +21,10 @@ app.config(function ($routeProvider, $locationProvider) {
 
   //Definicao dos arquivos das rotas
   $routeProvider
+  .when(rotas.home, {templateUrl: 'views/home.html'})
   .when(rotas.login, {templateUrl: 'views/login.html'})
+  .when(rotas.solicitacao, {templateUrl: 'views/solicitacao.html'})
 
   //caso nao seja nenhum desses, redirecione para a home
-  .otherwise({redirectTo: '/login'});
+  .otherwise({redirectTo: '/home'});
   });
-*/

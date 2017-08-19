@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" ng-controller="genericController">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
@@ -8,11 +8,11 @@
         <span class="icon-bar"></span>
       </button>
       <img alt="Logo" src="img/logo.png" class="navbar-brand" />
-      <a class="navbar-brand" href="/home">Abacate</a>
+      <a class="navbar-brand" href="home">Abacate</a>
     </div>
-    <div class="collapse navbar-collapse" id="menu">
+    <div class="collapse navbar-collapse" id="menu" ng-if="sessao.logado">
       <ul class="nav navbar-nav">
-        <li><a href="#">Solicitações</a></li>
+        <li><a href="home">Solicitações</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             Racks <span class="caret"></span>
@@ -58,7 +58,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="#">
+          <a href="#" ng-click="logout()">
             <span class="glyphicon glyphicon-log-out"></span>
             Sair
           </a>

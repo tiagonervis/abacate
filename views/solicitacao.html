@@ -1,0 +1,46 @@
+<section class="container-fluid" ng-controller="genericController">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
+      <h2>Nova solicitação</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
+      <form>
+        <div class="form-group">
+          <label for="email">Seu e-mail</label>
+          <input type="email" class="form-control" id="email" ng-model="solicitacao.email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <label for="senha">Sua senha</label>
+          <input type="password" class="form-control" id="senha" ng-model="solicitacao.senha" placeholder="Senha" required>
+        </div>
+        <div class="form-group">
+          <label for="tipo">Tipo de solicitação</label>
+          <select class="form-control" id="tipo" ng-model="solicitacao.tipo" required>
+            <<option value="" disabled>Selecione</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="ponto">Código do ponto</label>
+          <input type="text" class="form-control" id="ponto" ng-model="solicitacao.ponto" placeholder="Código do Ponto" required>
+        </div>
+        <div class="form-group">
+          <label for="observacoes">Observações (Opcional)</label>
+          <textarea id="observacoes" class="form-control" rows="2" ng-model="solicitacao.observacoes"></textarea>
+        </div>
+        <div class="form-group">
+          <div class="alert alert-success" role="alert" ng-hide="sucessoSolicitacao==undefined">
+            <span class="glyphicon glyphicon-ok"></span>&nbsp;
+              Solicitação registrada com sucesso!
+          </div>
+          <div class="alert alert-warning" role="alert" ng-hide="erroSolicitacao==undefined" >
+            <span class="glyphicon glyphicon-remove"></span>&nbsp;
+            {{erroSolicitacao}}
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success" ng-click="sucessoSolicitacao=true">Enviar solicitação</button>
+      </form>
+    </div>
+  </div>
+</section>

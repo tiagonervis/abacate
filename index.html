@@ -22,9 +22,13 @@
   <link href="css/custom.css" rel="stylesheet">
   <!-- /build -->
 </head>
-<body>
+<body ng-controller="mainController">
+  <div class="carregando" ng-hide="!exibirCarregando && requisicoesPendentes == 0">
+    <img src="img/loader.gif" />
+    <span></span>
+  </div>
   <header ng-include="'views/header.html'"></header>
-  <section ng-include="'views/login.html'"></section>
+  <section ng-view></section>
   <footer ng-include="'views/footer.html'"></footer>
   <!-- build:template
   <script src="js/libs.min.js" defer></script>
@@ -37,8 +41,11 @@
   <script src="libs/angular.min.js" defer></script>
   <script src="libs/angular-route.min.js" defer></script>
   <script src="libs/angular-sanitize.min.js" defer></script>
+  <script src="libs/angular-cookies.min.js" defer></script>
   <script src="libs/angular-locale_pt-br.js" defer></script>
   <script src="js/app.js" defer></script>
+  <script src="js/mainController.js" defer></script>
+  <script src="js/genericController.js" defer></script>
   <!-- /build -->
 </body>
 </html>
