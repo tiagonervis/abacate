@@ -1,14 +1,14 @@
 {
   "name": "abacate_front",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Front-end from abacate project",
   "author": "Ezequiel Post, Ivan Lampert, Tiago Nervis",
   "license": "ISC",
   "devDependencies": {
     "grunt": "^1.0.1",
+    "grunt-concat-css": "^0.3.2",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-htmlmin": "^2.4.0",
     "grunt-contrib-uglify": "^3.0.1",
     "grunt-processhtml": "^0.4.1",

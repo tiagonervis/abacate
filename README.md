@@ -20,10 +20,8 @@ $ npm install
 $ grunt
 ```
 
-4. Para executar a versão de produção basta rodar o servidor incorporado:
+No final do processo o servidor web incorporado estará rodando no endereço:
 
-```
-$ node servidor.js
-```
+[127.0.0.1:3000](http://127.0.0.1:3000)
 
-Após o termino do processo a pasta /dist será criada com todo o conteúdo necessário para o envio para FTP.
+A pasta /dist criada contém todo o conteúdo necessário para o envio para FTP.

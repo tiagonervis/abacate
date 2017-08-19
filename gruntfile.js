@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
 
+  var url_base = grunt.option('urlbase') || '/';
+
   grunt.initConfig({
 
     clean: {
@@ -32,24 +34,17 @@ module.exports = function(grunt) {
       }
     },
 
-    cssmin: {
-      options: {
-        mergeIntoShorthands: false,
-        roundingPrecision: -1
-      },
-      dist: {
-        files: {
-          'dist/css/app.min.css': [
-            'css/bootstrap.min.css',
-            'custom.css'
-          ]
-        }
+    concat_css: {
+      all: {
+        src: ['css/bootstrap.min.css', 'css/custom.css'],
+        dest: 'dist/css/app.min.css'
       }
     },
 
     processhtml: {
       options: {
         data: {
+          urlbase: url_base
         }
       },
       dist: {
@@ -94,7 +89,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-concat-css');
   grunt.loadNpmTasks('grunt-processhtml');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -102,7 +97,7 @@ module.exports = function(grunt) {
   grunt.registerTask("default", [
     'clean:dist',
     'uglify:dist',
-    'cssmin:dist',
+    'concat_css',
     'processhtml:dist',
     'htmlmin:dist',
     'copy:dist',

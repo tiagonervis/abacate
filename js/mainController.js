@@ -44,7 +44,7 @@ app.controller("mainController", function($scope, $location, $http, $cookies) {
   $scope.api = function(url, metodo, dados, retorno, sucesso, erro, callback, parametros) {
 
     //Configura requisiscao
-    let config = {
+    var config = {
       url: configs.urlApi + url,
       method: metodo,
       headers: {
