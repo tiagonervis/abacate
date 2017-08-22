@@ -12,7 +12,7 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
     id: 0,
     nome: null,
     auth: null,
-    logado: true
+    logado: false
   };
 
   //Metodo chamado quando o carregamento da rota for iniciado

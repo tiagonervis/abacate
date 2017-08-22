@@ -19,5 +19,17 @@
   <footer ng-include="'views/footer.html'"></footer>
   <script src="js/libs.min.js" defer></script>
   <script src="js/app.min.js" defer></script>
+
+  <div class="notificacao" ng-hide="!notificacao.ativo">
+    <div class="alert" ng-class="notificacao.erro? 'alert-warning' : 'alert-success'" role="alert">
+      <span ng-if="!notificacao.erro" class="glyphicon glyphicon-ok"></span>
+      <span ng-if="notificacao.erro" class="glyphicon glyphicon-remove"></span>
+      <strong>{{notificacao.titulo}}</strong>
+      <p>{{notificacao.mensagem}}</p>
+      <button type="button" class="close" ng-click="notificacao.ativo=false">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
 </body>
 </html>
