@@ -1,5 +1,5 @@
 //Declaracao da aplicacao
-var app = angular.module("app", ['ngRoute', 'ngSanitize', 'ngCookies', 'ngLocale']);
+var app = angular.module("app", ['ngRoute', 'ngSanitize', 'ngCookies', 'ngAnimate', 'ngLocale']);
 
 //Objeto global de configuracao
 var configs = {
@@ -10,7 +10,8 @@ var configs = {
 var rotas = {
   home: '/home',
   login: '/login',
-  solicitacao: '/solicitacao'
+  solicitacao: '/solicitacao',
+  usuarios: '/usuarios'
 };
 
 //Configura app
@@ -24,6 +25,7 @@ app.config(function ($routeProvider, $locationProvider) {
   .when(rotas.home, {templateUrl: 'views/home.html'})
   .when(rotas.login, {templateUrl: 'views/login.html'})
   .when(rotas.solicitacao, {templateUrl: 'views/solicitacao.html'})
+  .when(rotas.usuarios, {templateUrl: 'views/usuarios.html'})
 
   //caso nao seja nenhum desses, redirecione para a home
   .otherwise({redirectTo: '/home'});

@@ -1,5 +1,5 @@
 //Controller principal carregado na index
-app.controller("mainController", function($scope, $location, $http, $cookies) {
+app.controller("mainController", function($scope, $location, $http, $cookies, $timeout) {
 
   //Exibe imagem carregando
   $scope.exibirCarregando = true;
@@ -12,7 +12,7 @@ app.controller("mainController", function($scope, $location, $http, $cookies) {
     id: 0,
     nome: null,
     auth: null,
-    logado: false
+    logado: true
   };
 
   //Metodo chamado quando o carregamento da rota for iniciado
@@ -99,6 +99,28 @@ app.controller("mainController", function($scope, $location, $http, $cookies) {
 
     //Redireciona para login
     $location.path(rotas.login);
+  };
+
+  $scope.abrirModal = function(id, obj, destino) {
+    $scope[destino] = angular.copy(obj);
+    $(id).modal();
+  };
+
+  //Metodo para exibir uma notificacao na tela
+  $scope.exibirNotificacao = function(titulo, mensagem, erro) {
+
+    //Exibe notificacao com os dados informados
+    $scope.notificacao = {
+      ativo: true,
+      titulo: titulo,
+      mensagem: mensagem,
+      erro: erro
+    };
+
+    //Oculta notificacao apos tempo
+    $timeout(function () {
+      $scope.notificacao.ativo = false;
+    },3000);
   };
 
 });

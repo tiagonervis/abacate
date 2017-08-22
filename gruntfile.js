@@ -22,6 +22,7 @@ module.exports = function(grunt) {
             'libs/angular.min.js',
             'libs/angular-route.min.js',
             'libs/angular-sanitize.min.js',
+            'libs/angular-animate.min.js',
             'libs/angular-cookies.min.js',
             'libs/angular-locale_pt-br.js'
           ],

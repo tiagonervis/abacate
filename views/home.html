@@ -1,6 +1,9 @@
 <section class="container-fluid" ng-controller="genericController">
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-md-4 col-lg-4">
+        <h4>Solicitações</h4>
+    </div>
+    <div class="col-md-6 col-lg-6">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Pocurar por responsável ou local...">
         <span class="input-group-btn">
@@ -8,10 +11,13 @@
         </span>
       </div>
     </div>
+    <div class="col-md-2 col-lg-2">
+        <button class="btn btn-success" type="button">Nova Solicitação</button>
+    </div>
   </div>
   <br>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 table-responsive">
       <table class="table table-hover">
         <tr>
           <th>#</th>

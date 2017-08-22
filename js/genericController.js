@@ -8,5 +8,4 @@ app.controller("genericController", function($scope, $location) {
     $scope.sessao.logado = true;
     $location.path(rotas.home);
   };
-
 });
