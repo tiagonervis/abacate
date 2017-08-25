@@ -1,0 +1,35 @@
+{
+  "titulo": "Tipos de racks",
+  "titulo_modal": "Cadastro de tipo de rack",
+  "url": "tipos_racks",
+  "chave": "id",
+  "busca": {
+    "ativo": true,
+    "texto": "Procurar por tipo de rack..."
+  },
+  "novo": {
+    "ativo": true,
+    "botao": "Novo",
+    "objeto": {}
+  },
+  "campos": [
+    {
+      "campo": "id",
+      "nome": "Código",
+      "tipo": "text",
+      "visivel": false,
+      "requirido": true,
+      "editavel": false,
+      "listar": true
+    },
+    {
+      "campo": "tipo",
+      "nome": "Tipo",
+      "tipo": "text",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true
+    }
+  ]
+}

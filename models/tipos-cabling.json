@@ -1,0 +1,35 @@
+{
+  "titulo": "Tipos de cabling",
+  "titulo_modal": "Cadastro de tipo de cabling",
+  "url": "cabling",
+  "chave": "id",
+  "busca": {
+    "ativo": true,
+    "texto": "Procurar por tipo de cabling..."
+  },
+  "novo": {
+    "ativo": true,
+    "botao": "Novo",
+    "objeto": {}
+  },
+  "campos": [
+    {
+      "campo": "id",
+      "nome": "Código",
+      "tipo": "text",
+      "visivel": false,
+      "requirido": true,
+      "editavel": false,
+      "listar": true
+    },
+    {
+      "campo": "cabling",
+      "nome": "Cabling",
+      "tipo": "text",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true
+    }
+  ]
+}

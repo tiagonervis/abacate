@@ -1,6 +1,9 @@
 //Controller principal carregado na index
 app.controller("mainController", function($scope, $location, $http, $cookies, $timeout) {
 
+  //Disponibiliza variavel com data atual
+  $scope.hoje = new Date();
+
   //Exibe imagem carregando
   $scope.exibirCarregando = true;
 
@@ -47,6 +50,7 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
     var config = {
       url: configs.urlApi + url,
       method: metodo,
+      data: dados,
       headers: {
         'Content-Type': 'application/json',
         'Autorization': 'Basic ' + $scope.sessao.auth
@@ -72,38 +76,17 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
         callback(parametros);
       }
 
-
     }, function(error) {
 
       //Decrementa requisicoes pendentes
       $scope.requisicoesPendentes--;
 
       //Se ocorreu erro na requisicao devolve codigo e descricao do erro
-      retorno[erro] = error.status + ' ' + error.statusText;
+      retorno[erro] = error.statusText;
+
+      //Exibe notificacao do erro
+      $scope.exibirNotificacao('Erro', retorno.erro, true);
     });
-  };
-
-  //Metodo para efetuar logout
-  $scope.logout = function() {
-
-    //Limpa objeto sessao
-    $scope.sessao = {
-      id: 0,
-      nome: null,
-      auth: null,
-      logado: false
-    };
-
-    //Remove cookie sessao
-    $cookies.remove('sessao');
-
-    //Redireciona para login
-    $location.path(rotas.login);
-  };
-
-  $scope.abrirModal = function(id, obj, destino) {
-    $scope[destino] = angular.copy(obj);
-    $(id).modal();
   };
 
   //Metodo para exibir uma notificacao na tela
@@ -123,4 +106,69 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
     },3000);
   };
 
+  //Metodo para efetuar login
+  $scope.login = function () {
+
+    //Variavel local para receber retorno
+    let retorno = {};
+
+    //Inicia variavel com conteudo do cookie, se existir
+    let basic = $cookies.get('auth');
+
+    //Se login foi preenchido
+    if ($scope.login !== undefined) {
+
+      //Compoe autenticacao tipo basic e converte em base64
+      basic = btoa($scope.login.usuario + ':' + $scope.login.senha);
+
+      //Se foi marcado para salvar autenticacao
+      if ($scope.login.permanecerConectado) {
+
+        //Expira cookie daqui 30 dias
+        let expira = new Date($scope.hoje + 30);
+
+        //Grava cookie
+        $cookies.put('auth', basic, { expires: expira });
+
+      } else {
+
+        //Remove cookie
+        $cookies.remove('auth');
+      }
+    }
+
+    //Se basic possui valor
+    if (basic !== undefined) {
+
+      //Define autenticacao no objeto sessao
+      $scope.sessao.auth = basic;
+
+      $scope.api('usuarios', 'GET', null, retorno, 'sucesso', 'erro', function () {
+
+        $scope.sessao.logado = true;
+        $location.path(rotas.home);
+      });
+    }
+  };
+
+  //Metodo para efetuar logout
+  $scope.logout = function() {
+
+    //Limpa objeto sessao
+    $scope.sessao = {
+      id: 0,
+      nome: null,
+      auth: null,
+      logado: false
+    };
+
+    //Remove cookie auth
+    $cookies.remove('auth');
+
+    //Redireciona para login
+    $location.path(rotas.login);
+  };
+
+  //Ao carregar controller tenta efetuar login
+  $scope.login();
 });

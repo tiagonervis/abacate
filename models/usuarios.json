@@ -1,0 +1,83 @@
+{
+  "titulo": "Cadastro de Usuários",
+  "titulo_modal": "Cadastro de usuário",
+  "url": "usuarios",
+  "chave": "id",
+  "busca": {
+    "ativo": true,
+    "texto": "Procurar por usuário..."
+  },
+  "novo": {
+    "ativo": true,
+    "botao": "Novo",
+    "objeto": {}
+  },
+  "campos": [
+    {
+      "campo": "id",
+      "nome": "#",
+      "tipo": "text",
+      "visivel": false,
+      "requirido": true,
+      "editavel": false,
+      "listar": true
+    },
+    {
+      "campo": "nome",
+      "nome": "Nome",
+      "tipo": "text",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true
+    },
+    {
+      "campo": "usuario",
+      "nome": "Usuário",
+      "tipo": "text",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true
+    },
+    {
+      "campo": "senha",
+      "nome": "Senha",
+      "tipo": "password",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": false
+    },
+    {
+      "campo": "email",
+      "nome": "E-mail",
+      "tipo": "email",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true
+    },
+    {
+      "campo": "ultimo_acesso",
+      "nome": "Último acesso",
+      "tipo": "date",
+      "visivel": false,
+      "requirido": false,
+      "editavel": false,
+      "listar": true,
+      "formato": "dd/MM/yyyy hh:ii:ss"
+    },
+    {
+      "campo": "ativo",
+      "nome": "Ativo",
+      "tipo": "checkbox",
+      "visivel": true,
+      "requirido": false,
+      "editavel": true,
+      "listar": true,
+      "verdadeiro": "Sim",
+      "falso": "Não"
+    }
+  ]
+}

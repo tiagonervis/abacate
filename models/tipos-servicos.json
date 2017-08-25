@@ -1,0 +1,35 @@
+{
+  "titulo": "Tipos de serviços",
+  "titulo_modal": "Cadastro de tipo de serviço",
+  "url": "tipos_servicos",
+  "chave": "id",
+  "busca": {
+    "ativo": true,
+    "texto": "Procurar por tipo de serviço..."
+  },
+  "novo": {
+    "ativo": true,
+    "botao": "Novo",
+    "objeto": {}
+  },
+  "campos": [
+    {
+      "campo": "id",
+      "nome": "Código",
+      "tipo": "text",
+      "visivel": false,
+      "requirido": true,
+      "editavel": false,
+      "listar": true
+    },
+    {
+      "campo": "tipo",
+      "nome": "Tipo",
+      "tipo": "text",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true
+    }
+  ]
+}

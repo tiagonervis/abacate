@@ -1,0 +1,35 @@
+{
+  "titulo": "Tipos de solicitações",
+  "titulo_modal": "Cadastro de tipo de solicitação",
+  "url": "tipos_solicitacoes",
+  "chave": "id",
+  "busca": {
+    "ativo": true,
+    "texto": "Procurar por tipo de solicitação..."
+  },
+  "novo": {
+    "ativo": true,
+    "botao": "Novo",
+    "objeto": {}
+  },
+  "campos": [
+    {
+      "campo": "id",
+      "nome": "Código",
+      "tipo": "text",
+      "visivel": false,
+      "requirido": true,
+      "editavel": false,
+      "listar": true
+    },
+    {
+      "campo": "tipo",
+      "nome": "Tipo",
+      "tipo": "text",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "titulo": "Cadastro de marcas",
+  "titulo_modal": "Cadastro de marca",
+  "url": "marcas",
+  "chave": "id",
+  "busca": {
+    "ativo": true,
+    "texto": "Procurar por descrição da marca..."
+  },
+  "novo": {
+    "ativo": true,
+    "botao": "Novo",
+    "objeto": {}
+  },
+  "campos": [
+    {
+      "campo": "id",
+      "nome": "Código",
+      "tipo": "text",
+      "visivel": false,
+      "requirido": true,
+      "editavel": false,
+      "listar": true
+    },
+    {
+      "campo": "descricao",
+      "nome": "Descrição",
+      "tipo": "text",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true
+    }
+  ]
+}

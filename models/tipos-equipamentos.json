@@ -1,0 +1,35 @@
+{
+  "titulo": "Tipos de equipamentos",
+  "titulo_modal": "Cadastro de tipo de equipamento",
+  "url": "tipos_equipamentos",
+  "chave": "id",
+  "busca": {
+    "ativo": true,
+    "texto": "Procurar por tipo de equipamento..."
+  },
+  "novo": {
+    "ativo": true,
+    "botao": "Novo",
+    "objeto": {}
+  },
+  "campos": [
+    {
+      "campo": "id",
+      "nome": "Código",
+      "tipo": "text",
+      "visivel": false,
+      "requirido": true,
+      "editavel": false,
+      "listar": true
+    },
+    {
+      "campo": "tipo",
+      "nome": "Tipo",
+      "tipo": "text",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true
+    }
+  ]
+}
