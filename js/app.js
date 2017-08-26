@@ -10,6 +10,7 @@ var configs = {
 var rotas = {
   home: '/home',
   login: '/login',
+  solicitacao: '/solicitacao',
   generico: '/:rota'
 };
 

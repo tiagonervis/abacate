@@ -1,0 +1,69 @@
+{
+  "titulo": "Equipamentos",
+  "titulo_modal": "Cadastro de equipamento",
+  "url": "equipamentos",
+  "chave": "id",
+  "busca": {
+    "ativo": true,
+    "texto": "Procurar por descrição do equipamento..."
+  },
+  "novo": {
+    "ativo": true,
+    "texto": "Novo",
+    "objeto": {}
+  },
+  "campos": [
+    {
+      "campo": "id",
+      "nome": "Código",
+      "tipo": "text",
+      "visivel": false,
+      "requirido": true,
+      "editavel": false,
+      "listar": true
+    },
+    {
+      "campo": "descricao",
+      "nome": "Descrição",
+      "tipo": "text",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true
+    },
+    {
+      "campo": "marca",
+      "nome": "Marca",
+      "tipo": "select",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true,
+      "url": "marcas",
+      "lista": "marcas",
+      "descricao": "descricao"
+    },
+    {
+      "campo": "tipoDoEquipamento",
+      "nome": "Tipo",
+      "tipo": "select",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true,
+      "url": "tipos_equipamentos",
+      "lista": "equipamentos",
+      "descricao": "tipo"
+    },
+    {
+      "campo": "detalhes",
+      "nome": "Detalhes",
+      "tipo": "textarea",
+      "visivel": true,
+      "requirido": false,
+      "editavel": true,
+      "listar": false,
+      "linhas": 2
+    }
+  ]
+}

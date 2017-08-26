@@ -1,4 +1,4 @@
-<section class="container-fluid" ng-controller="genericController" ng-init="carregar()">
+<section class="container-fluid" ng-controller="genericController" ng-init="iniciar()">
   <div class="row">
     <div class="col-xs-6 col-sm-8 col-md-4 col-lg-4">
       <h4>{{model.titulo}}</h4>
@@ -6,7 +6,7 @@
     <div class="col-xs-6 col-sm-4 hidden-md hidden-lg text-right" ng-hide="!model.novo.ativo">
       <button class="btn btn-success" type="button" ng-click="editar(model.novo.objeto)">
         <span class="glyphicon glyphicon-plus"></span>
-        &nbsp;{{model.novo.botao}}
+        &nbsp;{{model.novo.texto}}
       </button>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-hide="!model.busca.ativo">
@@ -23,7 +23,7 @@
     <div class="hidden-xs hidden-sm col-md-2 col-lg-2 text-right" ng-hide="!model.novo.ativo">
       <button class="btn btn-success" type="button" ng-click="editar(model.novo.objeto)">
         <span class="glyphicon glyphicon-plus"></span>
-        &nbsp;{{model.novo.botao}}
+        &nbsp;{{model.novo.texto}}
       </button>
     </div>
   </div>
@@ -47,7 +47,8 @@
           <td ng-repeat="atual in model.campos | filter:{listar:true}">
             <span ng-switch="atual.tipo">
               <span ng-switch-when="email"><a ng-href="mailto:{{linha[atual.campo]}}">{{linha[atual.campo]}}</a></span>
-              <span ng-switch-when="checkbox">{{linha[atual.campo]? atual.verdadeiro : atual.falso}}</a></span>
+              <span ng-switch-when="checkbox">{{linha[atual.campo] == atual.verdadeiro[0]? atual.verdadeiro[1] : atual.falso[1]}}</a></span>
+              <span ng-switch-when="select">{linha[atual.campo][atual.descricao]}}</span>
               <span ng-switch-default>{{linha[atual.campo]}}</span>
             </span>
           </td>
@@ -70,12 +71,19 @@
               <span ng-switch="atual.tipo">
                 <div ng-switch-when="checkbox" class="checkbox">
                   <label>
-                    <input type="checkbox" ng-model="view.selecionado[atual.campo]">&nbsp;{{atual.nome}}
+                    <input type="checkbox" ng-model="view.selecionado[atual.campo]" ng-true-value="{{atual.verdadeiro[0]}}" ng-false-value="{{atual.falso[0]}}">&nbsp;{{atual.nome}}
                   </label>
                 </div>
                 <div ng-switch-when="textarea" class="form-group">
                   <label for="{{atual.campo}}">{{atual.nome}}</label>
                   <textarea id="{{atual.campo}}" class="form-control" placeholder="{{atual.nome}}" ng-model="view.selecionado[atual.campo]" ng-required="atual.requerido" ng-disabled="!atual.editavel" rows="atual.linhas"></textarea>
+                </div>
+                <div ng-switch-when="select" class="form-group" ng-init="api(atual.url, 'GET', null, view, atual.lista)">
+                  <label for="{{atual.campo}}">{{atual.nome}}</label>
+                  <select id="{{atual.campo}}" class="form-control" ng-model="view.selecionado[atual.campo]" ng-required="atual.requerido" ng-disabled="!atual.editavel">
+                    <option value="" disabled>Selecione</option>
+                    <option ng-repeat="item in view[atual.lista]" ng-value="item">{{item[atual.descricao]}}</option>
+                  </select>
                 </div>
                 <div ng-switch-default class="form-group">
                   <label for="{{atual.campo}}">{{atual.nome}}</label>

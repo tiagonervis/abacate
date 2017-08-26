@@ -1,8 +1,8 @@
 //Controller generico pode ser usado em qualquer pagina
-app.controller("genericController", function($scope, $routeParams, $http) {
+app.controller("genericController", function($scope, $routeParams, $http, $q) {
 
   //Metodo para carregar model
-  $scope.carregar = function () {
+  $scope.iniciar = function () {
 
     //Define o nome do arquivo pela url
     let arquivo = 'models/' + $routeParams.rota + '.json';
@@ -92,10 +92,13 @@ app.controller("genericController", function($scope, $routeParams, $http) {
       let retorno = {};
 
       //Executa chamada da api para excluir o registro informado
-      $scope.api($scope.model.url + '/' + id, 'DELETE', retorno, 'sucesso', 'erro', function () {
+      $scope.api($scope.model.url + '/' + id, 'DELETE', null, retorno, 'sucesso', 'erro', function () {
 
         //Caso consiga excluir exibe notificacao de sucesso
-        $scope.exibirNotificacao('Sucesso', 'Registro exclído com sucesso!', false);
+        $scope.exibirNotificacao('Sucesso', 'Registro excluído com sucesso!', false);
+
+        //Atualiza lista de registros
+        $scope.listar();
       });
     }
   };

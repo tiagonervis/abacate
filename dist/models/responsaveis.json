@@ -1,0 +1,73 @@
+{
+  "titulo": "Responsáveis",
+  "titulo_modal": "Cadastro de responsável",
+  "url": "responsaveis",
+  "chave": "id",
+  "busca": {
+    "ativo": true,
+    "texto": "Procurar por nome..."
+  },
+  "novo": {
+    "ativo": true,
+    "texto": "Novo",
+    "objeto": {}
+  },
+  "campos": [
+    {
+      "campo": "id",
+      "nome": "Código",
+      "tipo": "text",
+      "visivel": false,
+      "requirido": true,
+      "editavel": false,
+      "listar": true
+    },
+    {
+      "campo": "nome",
+      "nome": "Nome",
+      "tipo": "text",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true
+    },
+    {
+      "campo": "email",
+      "nome": "E-mail",
+      "tipo": "email",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true
+    },
+    {
+      "campo": "ramal",
+      "nome": "Ramal",
+      "tipo": "number",
+      "visivel": true,
+      "requirido": false,
+      "editavel": true,
+      "listar": false
+    },
+    {
+      "campo": "senha",
+      "nome": "Senha",
+      "tipo": "password",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": false
+    },
+    {
+      "campo": "ativo",
+      "nome": "Ativo",
+      "tipo": "checkbox",
+      "visivel": true,
+      "requirido": false,
+      "editavel": true,
+      "listar": true,
+      "verdadeiro": [1,"Sim"],
+      "falso": [0,"Não"]
+    }
+  ]
+}
