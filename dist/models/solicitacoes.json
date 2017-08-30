@@ -1,0 +1,123 @@
+{
+  "titulo": "Solicitações",
+  "titulo_modal": "Solicitação de alteração",
+  "url": "solicitacoes",
+  "chave": "id",
+  "busca": {
+    "ativo": true,
+    "texto": "Procurar por ponto ou responsável..."
+  },
+  "novo": {
+    "ativo": true,
+    "texto": "Novo",
+    "objeto": {}
+  },
+  "abas": {
+    "ativo": true,
+    "lista": [
+      {
+        "id": 1,
+        "texto": "Abertura"
+      },
+      {
+        "id": 2,
+        "texto": "Fechamento"
+      }
+    ]
+  },
+  "campos": [
+    {
+      "campo": "id",
+      "nome": "#",
+      "tipo": "text",
+      "visivel": false,
+      "requirido": true,
+      "editavel": false,
+      "listar": true,
+      "aba": 1
+    },
+    {
+      "campo": "abertura",
+      "nome": "Data de abertura",
+      "tipo": "text",
+      "visivel": true,
+      "requirido": true,
+      "editavel": false,
+      "listar": true,
+      "aba": 1
+    },
+    {
+      "campo": "ponto",
+      "nome": "Ponto",
+      "tipo": "select",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true,
+      "url": "pontos",
+      "lista": "pontos",
+      "descricao": "codPonto",
+      "aba": 1
+    },
+    {
+      "campo": "responsavel",
+      "nome": "Responsável",
+      "tipo": "select",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": false,
+      "url": "responsaveis",
+      "lista": "responsaveis",
+      "descricao": "nome",
+      "aba": 1
+    },
+    {
+      "campo": "tipoSolicitacao",
+      "nome": "Tipo de solicitação",
+      "tipo": "select",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": false,
+      "url": "tipos_solicitacoes",
+      "lista": "tiposSolicitacoes",
+      "descricao": "tipo",
+      "aba": 1
+    },
+    {
+      "campo": "fechamento",
+      "nome": "Data de fechamento",
+      "tipo": "text",
+      "visivel": true,
+      "requirido": true,
+      "editavel": false,
+      "listar": true,
+      "aba": 2
+    },
+    {
+      "campo": "responsavelFechamento",
+      "nome": "Resp. Fechamento",
+      "tipo": "select",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": false,
+      "url": "usuarios",
+      "lista": "usuarios",
+      "descricao": "nome",
+      "aba": 2
+    },
+    {
+      "campo": "observacoes",
+      "nome": "Observações",
+      "tipo": "textarea",
+      "visivel": true,
+      "requirido": false,
+      "editavel": true,
+      "listar": false,
+      "linhas": 3,
+      "aba": 2
+    }
+  ]
+}

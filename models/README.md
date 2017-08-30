@@ -27,6 +27,15 @@ O conteúdo do arquivo é composto por um cabeçalho e um array de campos:
     "texto": "Novo",
     "objeto": {}
   },
+  "abas": {
+    "ativo": false,
+    "lista": [
+      {
+        "id": 1,
+        "texto": "Abertura"
+      }
+    ]
+  },
   "campos": [
     {
       "campo": "id",
@@ -56,6 +65,9 @@ Segue abaixo a relação de todos os campos possíveis no cabeçalho:
   - ativo - Exibe/Oculta o botão novo registro
   - texto - Texto exibido dentro do botão novo registro
   - objeto - Objeto que é carregado na modal ao clicar em novo registro
+* abas - Objeto OPCIONAL para exibir abas na modal  
+  - ativo - Se for true será exibidas as abas na modal
+  - lista - Array de objetos contendo os ids e nomes das abas conforme exemplo acima
 * campos - Array de objetos contendo as informações dos campos da tabela e da modal
 
 ### Campos da view
@@ -76,6 +88,7 @@ OBS: alguns campos se aplicam apenas a um tipo específico de campo.
 * url - Url da API para carregar lista de registros no tipo select
 * lista - Nome da variavel que vai receber a lista de registros no tipo select
 * descricao - Campo que deve ser exibido na tabela e no campo no tipo select
+* aba - Número da aba ao qual o campo pertence (Somente se possuir o objeto abas configurado)
 
 ### Lista de campos implementados
 

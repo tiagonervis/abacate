@@ -8,7 +8,7 @@ var configs = {
 
 //Declaracao das rotas
 var rotas = {
-  home: '/home',
+  home: '/solicitacoes',
   login: '/login',
   solicitacao: '/solicitacao',
   generico: '/:rota'
@@ -22,12 +22,11 @@ app.config(function ($routeProvider, $locationProvider) {
 
   //Definicao dos arquivos das rotas
   $routeProvider
-  .when(rotas.home, {templateUrl: 'views/home.html'})
   .when(rotas.login, {templateUrl: 'views/login.html'})
   .when(rotas.solicitacao, {templateUrl: 'views/solicitacao.html'})
   .when(rotas.generico, {templateUrl: 'views/generic.html'})
 
 
   //caso nao seja nenhum desses, redirecione para a home
-  .otherwise({redirectTo: '/home'});
+  .otherwise({redirectTo: rotas.home});
   });

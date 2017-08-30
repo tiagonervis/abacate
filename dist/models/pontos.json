@@ -1,0 +1,170 @@
+{
+  "titulo": "Pontos de rede",
+  "titulo_modal": "Cadastro de ponto de rede",
+  "url": "pontos",
+  "chave": "id",
+  "busca": {
+    "ativo": true,
+    "texto": "Procurar por código do ponto..."
+  },
+  "novo": {
+    "ativo": true,
+    "texto": "Novo",
+    "objeto": {}
+  },
+  "abas": {
+    "ativo": true,
+    "lista": [
+      {
+        "id": 1,
+        "texto": "Dados"
+      },
+      {
+        "id": 2,
+        "texto": "Informações"
+      },
+      {
+        "id": 3,
+        "texto": "Foto"
+      }
+    ]
+  },
+  "campos": [
+    {
+      "campo": "id",
+      "nome": "Código",
+      "tipo": "text",
+      "visivel": false,
+      "requirido": true,
+      "editavel": false,
+      "listar": true,
+      "aba": 1
+    },
+    {
+      "campo": "codPonto",
+      "nome": "Cód. do Ponto",
+      "tipo": "text",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true,
+      "aba": 1
+    },
+    {
+      "campo": "comprimento",
+      "nome": "Comprimento",
+      "tipo": "number",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": false,
+      "aba": 1
+    },
+    {
+      "campo": "certificacao",
+      "nome": "Certificação",
+      "tipo": "number",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": false,
+      "aba": 1
+    },
+    {
+      "campo": "sala",
+      "nome": "Sala",
+      "tipo": "number",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true,
+      "aba": 1
+    },
+    {
+      "campo": "local",
+      "nome": "Local",
+      "tipo": "select",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true,
+      "url": "locais",
+      "lista": "locais",
+      "descricao": "local",
+      "aba": 1
+    },
+    {
+      "campo": "rack",
+      "nome": "Rack",
+      "tipo": "select",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true,
+      "url": "racks",
+      "lista": "racks",
+      "descricao": "indetificacao",
+      "aba": 1
+    },
+    {
+      "campo": "equipamento",
+      "nome": "Equipamento",
+      "tipo": "select",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true,
+      "url": "equipamentos",
+      "lista": "equipamentos",
+      "descricao": "descricao",
+      "aba": 2
+    },
+    {
+      "campo": "situacao",
+      "nome": "Situação",
+      "tipo": "select",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": false,
+      "url": "situacoes",
+      "lista": "situacoes",
+      "descricao": "situacao",
+      "aba": 2
+    },
+    {
+      "campo": "situacao",
+      "nome": "Tipo de Serviço",
+      "tipo": "select",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": false,
+      "url": "tipos_servicos",
+      "lista": "servicos",
+      "descricao": "tipo",
+      "aba": 2
+    },
+    {
+      "campo": "portaRamal",
+      "nome": "Porta/Ramal",
+      "tipo": "number",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": false,
+      "aba": 2
+    },
+    {
+      "campo": "observacoes",
+      "nome": "Observações",
+      "tipo": "textarea",
+      "visivel": true,
+      "requirido": false,
+      "editavel": true,
+      "listar": false,
+      "linhas": 2,
+      "aba": 2
+    }
+  ]
+}

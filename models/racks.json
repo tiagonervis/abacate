@@ -1,0 +1,157 @@
+{
+  "titulo": "Racks",
+  "titulo_modal": "Cadastro de rack",
+  "url": "equipamentos",
+  "chave": "id",
+  "busca": {
+    "ativo": true,
+    "texto": "Procurar por identificação do rack..."
+  },
+  "novo": {
+    "ativo": true,
+    "texto": "Novo",
+    "objeto": {}
+  },
+  "abas": {
+    "ativo": true,
+    "lista": [
+      {
+        "id": 1,
+        "texto": "Dados"
+      },
+      {
+        "id": 2,
+        "texto": "Complemento"
+      },
+      {
+        "id": 3,
+        "texto": "Foto"
+      }
+    ]
+  },
+  "campos": [
+    {
+      "campo": "id",
+      "nome": "#",
+      "tipo": "text",
+      "visivel": false,
+      "requirido": true,
+      "editavel": false,
+      "listar": true,
+      "aba": 1
+    },
+    {
+      "campo": "identificacao",
+      "nome": "Identificação",
+      "tipo": "text",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true,
+      "aba": 1
+    },
+    {
+      "campo": "numeroU",
+      "nome": "Número U",
+      "tipo": "number",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true,
+      "aba": 1
+    },
+    {
+      "campo": "profundidade",
+      "nome": "Profundidade",
+      "tipo": "number",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": false,
+      "aba": 1
+    },
+    {
+      "campo": "largura",
+      "nome": "Largura",
+      "tipo": "number",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": false,
+      "aba": 1
+    },
+    {
+      "campo": "altura",
+      "nome": "Altura",
+      "tipo": "number",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": false,
+      "aba": 1
+    },
+    {
+      "campo": "local",
+      "nome": "Local",
+      "tipo": "select",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true,
+      "url": "locais",
+      "lista": "locais",
+      "descricao": "local",
+      "aba": 2
+    },
+    {
+      "campo": "cabling",
+      "nome": "Cabling",
+      "tipo": "select",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": false,
+      "url": "cabling",
+      "lista": "cabling",
+      "descricao": "cabling",
+      "aba": 2
+    },
+    {
+      "campo": "terminacao",
+      "nome": "Terminação",
+      "tipo": "select",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": false,
+      "url": "terminacoes",
+      "lista": "terminacoes",
+      "descricao": "terminacao",
+      "aba": 2
+    },
+    {
+      "campo": "tipoRack",
+      "nome": "Tipo de Rack",
+      "tipo": "select",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true,
+      "url": "tipos_racks",
+      "lista": "tiposRacks",
+      "descricao": "tipo",
+      "aba": 2
+    },
+    {
+      "campo": "observacoes",
+      "nome": "Observações",
+      "tipo": "textarea",
+      "visivel": true,
+      "requirido": false,
+      "editavel": true,
+      "listar": false,
+      "linhas": 2,
+      "aba": 2
+    }
+  ]
+}

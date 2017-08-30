@@ -48,7 +48,7 @@
             <span ng-switch="atual.tipo">
               <span ng-switch-when="email"><a ng-href="mailto:{{linha[atual.campo]}}">{{linha[atual.campo]}}</a></span>
               <span ng-switch-when="checkbox">{{linha[atual.campo] == atual.verdadeiro[0]? atual.verdadeiro[1] : atual.falso[1]}}</a></span>
-              <span ng-switch-when="select">{linha[atual.campo][atual.descricao]}}</span>
+              <span ng-switch-when="select">{{linha[atual.campo][atual.descricao]}}</span>
               <span ng-switch-default>{{linha[atual.campo]}}</span>
             </span>
           </td>
@@ -67,30 +67,26 @@
             <h4 class="modal-title">{{model.titulo_modal}}</h4>
           </div>
           <div class="modal-body">
-            <div ng-repeat="atual in model.campos | filter:{visivel:true}">
-              <span ng-switch="atual.tipo">
-                <div ng-switch-when="checkbox" class="checkbox">
-                  <label>
-                    <input type="checkbox" ng-model="view.selecionado[atual.campo]" ng-true-value="{{atual.verdadeiro[0]}}" ng-false-value="{{atual.falso[0]}}">&nbsp;{{atual.nome}}
-                  </label>
+            <span ng-if="model.abas.ativo">
+              <ul class="nav nav-tabs" role="tablist">
+                <li ng-repeat="aba in model.abas.lista" role="presentation" ng-class="{'active' : $index==0}">
+                  <a href="" data-target="#aba{{aba.id}}" role="tab" data-toggle="tab">{{aba.texto}}</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div ng-repeat="aba in model.abas.lista" id="aba{{aba.id}}" role="tabpanel" class="tab-pane" ng-class="{'active' : $index==0}">
+                  <br>
+                  <div ng-repeat="atual in model.campos | filter:{visivel:true, aba: aba.id}">
+                    <span ng-include="'campos_modal'"></span>
+                  </div>
                 </div>
-                <div ng-switch-when="textarea" class="form-group">
-                  <label for="{{atual.campo}}">{{atual.nome}}</label>
-                  <textarea id="{{atual.campo}}" class="form-control" placeholder="{{atual.nome}}" ng-model="view.selecionado[atual.campo]" ng-required="atual.requerido" ng-disabled="!atual.editavel" rows="atual.linhas"></textarea>
-                </div>
-                <div ng-switch-when="select" class="form-group" ng-init="api(atual.url, 'GET', null, view, atual.lista)">
-                  <label for="{{atual.campo}}">{{atual.nome}}</label>
-                  <select id="{{atual.campo}}" class="form-control" ng-model="view.selecionado[atual.campo]" ng-required="atual.requerido" ng-disabled="!atual.editavel">
-                    <option value="" disabled>Selecione</option>
-                    <option ng-repeat="item in view[atual.lista]" ng-value="item">{{item[atual.descricao]}}</option>
-                  </select>
-                </div>
-                <div ng-switch-default class="form-group">
-                  <label for="{{atual.campo}}">{{atual.nome}}</label>
-                  <input id="{{atual.campo}}" type="{{atual.tipo}}" class="form-control" placeholder="{{atual.nome}}" ng-model="view.selecionado[atual.campo]" ng-required="atual.requerido" ng-disabled="!atual.editavel">
-                </div>
-              </span>
-            </div>
+              </div>
+            </span>
+            <span ng-if="!model.abas.ativo">
+              <div ng-repeat="atual in model.campos | filter:{visivel:true}">
+                <span ng-include="'campos_modal'"></span>
+              </div>
+            </span>    
           </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-success">Salvar</button>
@@ -100,4 +96,28 @@
       </div>
     </div>
   </div>
+  <script type="text/ng-template" id="campos_modal">
+    <span ng-switch="atual.tipo">
+      <div ng-switch-when="checkbox" class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="view.selecionado[atual.campo]" ng-true-value="{{atual.verdadeiro[0]}}" ng-false-value="{{atual.falso[0]}}">&nbsp;{{atual.nome}}
+        </label>
+      </div>
+      <div ng-switch-when="textarea" class="form-group">
+        <label for="{{atual.campo}}">{{atual.nome}}</label>
+        <textarea id="{{atual.campo}}" class="form-control" placeholder="{{atual.nome}}" ng-model="view.selecionado[atual.campo]" ng-required="atual.requerido" ng-disabled="!atual.editavel" rows="{{atual.linhas}}"></textarea>
+      </div>
+      <div ng-switch-when="select" class="form-group" ng-init="api(atual.url, 'GET', null, view, atual.lista)">
+        <label for="{{atual.campo}}">{{atual.nome}}</label>
+        <select id="{{atual.campo}}" class="form-control" ng-model="view.selecionado[atual.campo]" ng-required="atual.requerido" ng-disabled="!atual.editavel">
+          <option value="" disabled>Selecione</option>
+          <option ng-repeat="item in view[atual.lista]" ng-value="item">{{item[atual.descricao]}}</option>
+        </select>
+      </div>
+      <div ng-switch-default class="form-group">
+        <label for="{{atual.campo}}">{{atual.nome}}</label>
+        <input id="{{atual.campo}}" type="{{atual.tipo}}" class="form-control" placeholder="{{atual.nome}}" ng-model="view.selecionado[atual.campo]" ng-required="atual.requerido" ng-disabled="!atual.editavel">
+      </div>
+    </span>
+  </script>
 </section>

@@ -1,0 +1,75 @@
+{
+  "titulo": "Locais",
+  "titulo_modal": "Cadastro de local",
+  "url": "locais",
+  "chave": "id",
+  "busca": {
+    "ativo": true,
+    "texto": "Procurar por local..."
+  },
+  "novo": {
+    "ativo": true,
+    "texto": "Novo",
+    "objeto": {}
+  },
+  "campos": [
+    {
+      "campo": "id",
+      "nome": "Código",
+      "tipo": "text",
+      "visivel": false,
+      "requirido": true,
+      "editavel": false,
+      "listar": true
+    },
+    {
+      "campo": "local",
+      "nome": "Local",
+      "tipo": "text",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true
+    },
+    {
+      "campo": "predio",
+      "nome": "Prédio",
+      "tipo": "number",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true
+    },
+    {
+      "campo": "andar",
+      "nome": "Andar",
+      "tipo": "number",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true
+    },
+    {
+      "campo": "responsavel",
+      "nome": "Responsável",
+      "tipo": "select",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true,
+      "url": "responsaveis",
+      "lista": "responsaveis",
+      "descricao": "nome"
+    },
+    {
+      "campo": "observacoes",
+      "nome": "Observações",
+      "tipo": "textarea",
+      "visivel": true,
+      "requirido": false,
+      "editavel": true,
+      "listar": false,
+      "linhas": 2
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "titulo": "Situações dos pontos",
+  "titulo_modal": "Cadastro de situações dos pontos",
+  "url": "situacoes",
+  "chave": "id",
+  "busca": {
+    "ativo": true,
+    "texto": "Procurar por uma situação..."
+  },
+  "novo": {
+    "ativo": true,
+    "texto": "Novo",
+    "objeto": {}
+  },
+  "campos": [
+    {
+      "campo": "id",
+      "nome": "Código",
+      "tipo": "text",
+      "visivel": false,
+      "requirido": true,
+      "editavel": false,
+      "listar": true
+    },
+    {
+      "campo": "situacao",
+      "nome": "Situação",
+      "tipo": "text",
+      "visivel": true,
+      "requirido": true,
+      "editavel": true,
+      "listar": true
+    }
+  ]
+}
