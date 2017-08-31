@@ -4,6 +4,9 @@ app.controller("genericController", function($scope, $routeParams, $http, $q) {
   //Metodo para carregar model
   $scope.iniciar = function () {
 
+    //Exibe imagem carregando
+    $scope.exibirCarregando = true;
+
     //Define o nome do arquivo pela url
     let arquivo = 'models/' + $routeParams.rota + '.json';
 
@@ -32,6 +35,9 @@ app.controller("genericController", function($scope, $routeParams, $http, $q) {
         //Exibe notificacao de erro
         $scope.exibirNotificacao('Erro', 'Falha ao carregar model', true);
       }
+
+      //oculta imagem carregando
+      $scope.exibirCarregando = false;
     });
   };
 
