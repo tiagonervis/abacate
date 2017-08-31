@@ -1,7 +1,7 @@
 {
   "titulo": "Racks",
   "titulo_modal": "Cadastro de rack",
-  "url": "equipamentos",
+  "url": "racks",
   "chave": "id",
   "busca": {
     "ativo": true,
@@ -100,6 +100,7 @@
       "listar": true,
       "url": "locais",
       "lista": "locais",
+      "chave": "id",
       "descricao": "local",
       "aba": 2
     },
@@ -113,6 +114,7 @@
       "listar": false,
       "url": "cabling",
       "lista": "cabling",
+      "chave": "id",
       "descricao": "cabling",
       "aba": 2
     },
@@ -126,6 +128,7 @@
       "listar": false,
       "url": "terminacoes",
       "lista": "terminacoes",
+      "chave": "id",
       "descricao": "terminacao",
       "aba": 2
     },
@@ -139,6 +142,7 @@
       "listar": true,
       "url": "tipos_racks",
       "lista": "tiposRacks",
+      "chave": "id",
       "descricao": "tipo",
       "aba": 2
     },
@@ -152,6 +156,17 @@
       "listar": false,
       "linhas": 2,
       "aba": 2
+    },
+    {
+      "campo": "foto",
+      "nome": "Foto",
+      "tipo": "file",
+      "visivel": true,
+      "requirido": false,
+      "editavel": true,
+      "listar": false,
+      "arquivo": "arquivo",
+      "aba": 3
     }
   ]
 }

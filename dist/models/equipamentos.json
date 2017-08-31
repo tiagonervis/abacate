@@ -53,6 +53,7 @@
       "listar": true,
       "url": "tipos_equipamentos",
       "lista": "equipamentos",
+      "chave": "id",
       "descricao": "tipo"
     },
     {

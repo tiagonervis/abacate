@@ -87,8 +87,10 @@ OBS: alguns campos se aplicam apenas a um tipo específico de campo.
 * falso - Array com valor e nome para exibição quando no tipo checkbox não estiver selecionado
 * url - Url da API para carregar lista de registros no tipo select
 * lista - Nome da variavel que vai receber a lista de registros no tipo select
+* chave - Nome do campo chave do objeto
 * descricao - Campo que deve ser exibido na tabela e no campo no tipo select
 * aba - Número da aba ao qual o campo pertence (Somente se possuir o objeto abas configurado)
+* arquivo - Nome da variavel que vai receber o objeto File lido no tipo file
 
 ### Lista de campos implementados
 
@@ -99,3 +101,4 @@ OBS: alguns campos se aplicam apenas a um tipo específico de campo.
 * textarea
 * checkbox
 * select
+* file
