@@ -103,7 +103,7 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
     //Oculta notificacao apos tempo
     $timeout(function () {
       $scope.notificacao.ativo = false;
-    },3000);
+    },2000);
   };
 
   //Metodo para efetuar login

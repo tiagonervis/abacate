@@ -28,6 +28,7 @@ module.exports = function(grunt) {
           ],
           'dist/js/app.min.js': [
             'js/app.js',
+            'js/upload.js',
             'js/mainController.js',
             'js/genericController.js'
           ]

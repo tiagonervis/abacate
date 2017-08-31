@@ -56,6 +56,7 @@
       "listar": true,
       "url": "pontos",
       "lista": "pontos",
+      "chave": "id",
       "descricao": "codPonto",
       "aba": 1
     },
@@ -68,6 +69,7 @@
       "editavel": true,
       "listar": false,
       "url": "responsaveis",
+      "chave": "id",
       "lista": "responsaveis",
       "descricao": "nome",
       "aba": 1
@@ -81,6 +83,7 @@
       "editavel": true,
       "listar": false,
       "url": "tipos_solicitacoes",
+      "chave": "id",
       "lista": "tiposSolicitacoes",
       "descricao": "tipo",
       "aba": 1
@@ -105,6 +108,7 @@
       "listar": false,
       "url": "usuarios",
       "lista": "usuarios",
+      "chave": "id",
       "descricao": "nome",
       "aba": 2
     },

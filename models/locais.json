@@ -59,6 +59,7 @@
       "listar": true,
       "url": "responsaveis",
       "lista": "responsaveis",
+      "chave": "id",
       "descricao": "nome"
     },
     {

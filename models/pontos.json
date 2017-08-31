@@ -90,6 +90,7 @@
       "listar": true,
       "url": "locais",
       "lista": "locais",
+      "chave": "id",
       "descricao": "local",
       "aba": 1
     },
@@ -103,7 +104,8 @@
       "listar": true,
       "url": "racks",
       "lista": "racks",
-      "descricao": "indetificacao",
+      "chave": "id",
+      "descricao": "identificacao",
       "aba": 1
     },
     {
@@ -116,6 +118,7 @@
       "listar": true,
       "url": "equipamentos",
       "lista": "equipamentos",
+      "chave": "id",
       "descricao": "descricao",
       "aba": 2
     },
@@ -129,11 +132,12 @@
       "listar": false,
       "url": "situacoes",
       "lista": "situacoes",
+      "chave": "id",
       "descricao": "situacao",
       "aba": 2
     },
     {
-      "campo": "situacao",
+      "campo": "tipoServico",
       "nome": "Tipo de Serviço",
       "tipo": "select",
       "visivel": true,
@@ -142,6 +146,7 @@
       "listar": false,
       "url": "tipos_servicos",
       "lista": "servicos",
+      "chave": "id",
       "descricao": "tipo",
       "aba": 2
     },
