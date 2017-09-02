@@ -1,0 +1,85 @@
+{
+  "titulo": "Registro de Logs",
+  "titulo_modal": "Registro de logs",
+  "url": "registros_logs",
+  "chave": "id",
+  "busca": {
+    "ativo": true,
+    "texto": "Procurar por data..."
+  },
+  "novo": {
+    "ativo": true,
+    "texto": "Novo",
+    "objeto": {}
+  },
+  "abas": {
+    "ativo": true,
+    "lista": [
+      {
+        "id": 1,
+        "texto": "Dados"
+      },
+      {
+        "id": 2,
+        "texto": "Registro"
+      }
+    ]
+  },
+  "campos": [
+    {
+      "campo": "id",
+      "nome": "Código",
+      "tipo": "text",
+      "visivel": false,
+      "requirido": true,
+      "editavel": false,
+      "listar": true,
+      "aba": 1
+    },
+    {
+      "campo": "dataHora",
+      "nome": "Data/Hora",
+      "tipo": "datetime",
+      "visivel": true,
+      "requirido": true,
+      "editavel": false,
+      "listar": true,
+      "aba": 1
+    },
+    {
+      "campo": "acao",
+      "nome": "Ação",
+      "tipo": "text",
+      "visivel": true,
+      "requirido": true,
+      "editavel": false,
+      "listar": true,
+      "aba": 1
+    },
+    {
+      "campo": "usuario",
+      "nome": "Usuário",
+      "tipo": "select",
+      "visivel": true,
+      "requirido": true,
+      "editavel": false,
+      "listar": true,
+      "url": "usuarios",
+      "lista": "usuarios",
+      "chave": "id",
+      "descricao": "nome",
+      "aba": 1
+    },
+    {
+      "campo": "dado",
+      "nome": "Registro",
+      "tipo": "textarea",
+      "visivel": true,
+      "requirido": true,
+      "editavel": false,
+      "listar": false,
+      "linhas": 5,
+      "aba": 2
+    }
+  ]
+}

@@ -25,7 +25,7 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
     $scope.exibirCarregando = true;
 
     //Se nao esta logado
-    if (!$scope.sessao.logado) {
+    if (!$scope.sessao.logado && $cookies.get('auth') === undefined) {
 
       //Se nao esta no login ou na solicitacao
       if ($location.path() !== '/login' && $location.path() !== '/solicitacao') {
@@ -44,7 +44,7 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
   });
 
   //Metodo generico para consultas a api
-  $scope.api = function(url, metodo, dados, retorno, sucesso, erro, callback, parametros) {
+  $scope.api = function(url, metodo, dados, retorno, sucesso, erro, callback, parametros, exibirErro = true) {
 
     //Configura requisiscao
     var config = {
@@ -84,8 +84,22 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
       //Se ocorreu erro na requisicao devolve codigo e descricao do erro
       retorno[erro] = error.statusText;
 
-      //Exibe notificacao do erro
-      $scope.exibirNotificacao('Erro', retorno.erro, true);
+      //Se parametro exibir erro estiver setado
+      if (exibirErro) {
+
+        //Exibe notificacao do erro
+        $scope.exibirNotificacao('Erro', retorno.erro, true);
+
+      //Se nao estiver ativo executa o callback
+      } else {
+
+        //Se callback foi informado
+        if (callback !== undefined) {
+
+          //Executa callback
+          callback(parametros);
+        }
+      }
     });
   };
 
@@ -107,7 +121,7 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
   };
 
   //Metodo para efetuar login
-  $scope.login = function () {
+  $scope.login = function (dados) {
 
     //Variavel local para receber retorno
     let retorno = {};
@@ -116,13 +130,13 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
     let basic = $cookies.get('auth');
 
     //Se login foi preenchido
-    if ($scope.login !== undefined) {
+    if (dados !== undefined) {
 
       //Compoe autenticacao tipo basic e converte em base64
-      basic = btoa($scope.login.usuario + ':' + $scope.login.senha);
+      basic = btoa(dados.usuario + ':' + dados.senha);
 
       //Se foi marcado para salvar autenticacao
-      if ($scope.login.permanecerConectado) {
+      if (dados.permanecerConectado) {
 
         //Expira cookie daqui 30 dias
         let expira = new Date($scope.hoje + 30);
@@ -143,11 +157,39 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
       //Define autenticacao no objeto sessao
       $scope.sessao.auth = basic;
 
+      //Chama metodo da api para autenticacao
       $scope.api('usuarios', 'GET', null, retorno, 'sucesso', 'erro', function () {
 
-        $scope.sessao.logado = true;
-        $location.path(rotas.home);
-      });
+        //Se nao ocorreu erros
+        if (retorno.erro === undefined) {
+
+          //Obtem registro do usuario logado
+          let usuario = retorno.sucesso[0];
+
+          //Define id e nome do usuario recebido
+          $scope.sessao.id = usuario.id;
+          $scope.sessao.nome = usuario.nome;
+
+          //Define sessao como logado
+          $scope.sessao.logado = true;
+
+          //Se esta na tela de login
+          if ($location.path() === rotas.login) {
+
+            //Redireciona para home
+            $location.path(rotas.home);
+          }
+
+        //Se ocorreu erros
+        } else {
+
+          //Exibe notificacao do erro
+          $scope.exibirNotificacao('Erro', "Usuário e/ou senha inválidos", true);
+
+          //Forca logout
+          $scope.logout();
+        }
+      }, null, false);
     }
   };
 
