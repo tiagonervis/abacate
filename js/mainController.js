@@ -53,7 +53,7 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
       data: dados,
       headers: {
         'Content-Type': 'application/json',
-        'Autorization': 'Basic ' + $scope.sessao.auth
+        'Autorization': $scope.sessao.auth
       }
     }
 
@@ -157,14 +157,23 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
       //Define autenticacao no objeto sessao
       $scope.sessao.auth = basic;
 
+      //Decodifica dados da autenticacao
+      let dados = atob(basic).split(':');
+
+      //Compoe objeto para enviar na autenticacao
+      dados = {
+        usuario: dados[0],
+        senha: dados[1]
+      };
+
       //Chama metodo da api para autenticacao
-      $scope.api('usuarios', 'GET', null, retorno, 'sucesso', 'erro', function () {
+      $scope.api('usuarios/autenticar', 'POST', dados, retorno, 'sucesso', 'erro', function () {
 
         //Se nao ocorreu erros
         if (retorno.erro === undefined) {
 
           //Obtem registro do usuario logado
-          let usuario = retorno.sucesso[0];
+          let usuario = retorno.sucesso;
 
           //Define id e nome do usuario recebido
           $scope.sessao.id = usuario.id;
