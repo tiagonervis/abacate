@@ -53,7 +53,7 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
       data: dados,
       headers: {
         'Content-Type': 'application/json',
-        'Autorization': $scope.sessao.auth
+        'Authorization': $scope.sessao.auth
       }
     }
 
