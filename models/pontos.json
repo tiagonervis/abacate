@@ -170,6 +170,17 @@
       "listar": false,
       "linhas": 2,
       "aba": 2
+    },
+    {
+      "campo": "foto",
+      "nome": "Foto",
+      "tipo": "file",
+      "visivel": true,
+      "requerido": false,
+      "editavel": true,
+      "listar": false,
+      "arquivo": "arquivo",
+      "aba": 3
     }
   ]
 }

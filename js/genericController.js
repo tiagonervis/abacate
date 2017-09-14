@@ -1,11 +1,14 @@
 //Controller generico pode ser usado em qualquer pagina
-app.controller("genericController", function($scope, $routeParams, $http, $q) {
+app.controller("genericController", function($scope, $routeParams, $http, $q, $location) {
+
+  //Inicia variavel de controle
+  $scope.carregado = false;
 
   //Metodo para carregar model
   $scope.iniciar = function () {
 
-    //Exibe imagem carregando
-    $scope.exibirCarregando = true;
+    //Incrementa requisicoes pendentes
+    $scope.requisicoesPendentes++;
 
     //Define o nome do arquivo pela url
     let arquivo = 'models/' + $routeParams.rota + '.json';
@@ -29,15 +32,30 @@ app.controller("genericController", function($scope, $routeParams, $http, $q) {
         //Metodo para listar registros
         $scope.listar();
 
+        //Decrementa requisicoes pendentes
+        $scope.requisicoesPendentes--;
+
+        //Exibe conteudo da view
+        $scope.carregado = true;
+
       //Caso de erro
       } else {
 
         //Exibe notificacao de erro
         $scope.exibirNotificacao('Erro', 'Falha ao carregar model', true);
+
+        //Decrementa requisicoes pendentes
+        $scope.requisicoesPendentes--;
       }
 
-      //oculta imagem carregando
-      $scope.exibirCarregando = false;
+    //Metodo em caso de erro
+    }, function (error) {
+
+      //Exibe notificacao de erro
+      $scope.exibirNotificacao('Erro', 'Falha ao carregar model', true);
+
+      //Decrementa requisicoes pendentes
+      $scope.requisicoesPendentes--;
     });
   };
 

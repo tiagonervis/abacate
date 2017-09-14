@@ -12,10 +12,16 @@
     </div>
     <div class="collapse navbar-collapse" id="menu" ng-if="sessao.logado">
       <ul class="nav navbar-nav">
-        <li><a href="#!/solicitacoes" onclick="$('#menu').collapse('hide')">Solicitações</a></li>
+        <li>
+          <a href="#!/solicitacoes" onclick="$('#menu').collapse('hide')">Solicitações</a>
+        </li>
         <li class="dropdown">
           <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            Racks <span class="caret"></span>
+            Racks&nbsp;
+            <span class="hidden-xs caret"></span>
+            <div class="visible-xs caret-direito">
+              <span class="caret"></span>
+            </div>
           </a>
           <ul class="dropdown-menu">
             <li><a href="#!/racks" onclick="$('#menu').collapse('hide')">Cadastro de Racks</a></li>
@@ -26,7 +32,11 @@
         </li>
         <li class="dropdown">
           <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            Pontos de Rede <span class="caret"></span>
+            Pontos de Rede&nbsp;
+            <span class="hidden-xs caret"></span>
+            <div class="visible-xs caret-direito">
+              <span class="caret"></span>
+            </div>
           </a>
           <ul class="dropdown-menu">
             <li><a href="#!/pontos" onclick="$('#menu').collapse('hide')">Cadastro de Pontos</a></li>
@@ -37,7 +47,11 @@
         </li>
         <li class="dropdown">
           <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            Equipamentos <span class="caret"></span>
+            Equipamentos&nbsp;
+            <span class="hidden-xs caret"></span>
+            <div class="visible-xs caret-direito">
+              <span class="caret"></span>
+            </div>
           </a>
           <ul class="dropdown-menu">
             <li><a href="#!/equipamentos" onclick="$('#menu').collapse('hide')">Cadastro de Equipamentos</a></li>
@@ -47,7 +61,11 @@
         </li>
         <li class="dropdown">
           <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            Administrativo <span class="caret"></span>
+            Administrativo&nbsp;
+            <span class="hidden-xs caret"></span>
+            <div class="visible-xs caret-direito">
+              <span class="caret"></span>
+            </div>
           </a>
           <ul class="dropdown-menu">
             <li><a href="#!/responsaveis" onclick="$('#menu').collapse('hide')">Responsáveis</a></li>
