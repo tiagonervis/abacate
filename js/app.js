@@ -1,5 +1,5 @@
 //Declaracao da aplicacao
-var app = angular.module("app", ['ngRoute', 'ngSanitize', 'ngCookies', 'ngAnimate', 'ngLocale']);
+var app = angular.module("app", ['ngRoute', 'ngSanitize', 'ngCookies', 'ngAnimate', 'ngLocale', 'ui.utils.masks']);
 
 //Objeto global de configuracao
 var configs = {
@@ -17,8 +17,8 @@ var rotas = {
 //Configura app
 app.config(function ($routeProvider, $locationProvider) {
 
-  //Remove o # da url
-  $locationProvider.html5Mode(true);
+  //Configura rotas com #!
+  $locationProvider.html5Mode(false);
 
   //Definicao dos arquivos das rotas
   $routeProvider

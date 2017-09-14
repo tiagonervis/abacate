@@ -24,7 +24,8 @@ module.exports = function(grunt) {
             'libs/angular-sanitize.min.js',
             'libs/angular-animate.min.js',
             'libs/angular-cookies.min.js',
-            'libs/angular-locale_pt-br.js'
+            'libs/angular-locale_pt-br.js',
+            'libs/angular-input-masks-standalone.min.js'
           ],
           'dist/js/app.min.js': [
             'js/app.js',

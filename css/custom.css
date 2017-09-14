@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito|Lobster|Muli:800');
+
 .carregando {
   position: fixed;
   top: 0px;
   left: 0px;
   width: 100%;
   height: 100%;
-  z-index: 9999;
+  z-index: 1000;
 }
+
 .carregando span {
   position: absolute;
   top: 0px;
@@ -15,16 +18,21 @@
   background-color: #000000;
   opacity: 0.3;
 }
+
 .carregando img {
   position: absolute;
   top: 50%;
   left: 50%;
   margin-top: -25px;
   margin-left: -25px;
+  opacity: 0.9;
 }
 
 body {
   margin-bottom: 70px;
+  background-color: #EFEFEF;
+  font-family: 'Nunito', sans-serif;
+  color: #505050;
 }
 
 footer {
@@ -33,7 +41,159 @@ footer {
   width: 100%;
   height: 40px;
   line-height: 40px;
-  background-color: #f5f5f5;
+  background-color: #F5F5F5;
+}
+
+table {
+  background-color: white;
+}
+
+th {
+  background-color: #293744;
+  opacity: 0.80;
+  color: white;
+}
+
+input, select, textarea {
+  box-shadow: none !important;
+}
+
+.navbar-default {
+  background-color: #293744;
+  border: 0;
+  border-radius: 0;
+}
+
+.navbar-default .navbar-brand {
+  font-family: 'Lobster', sans-serif;
+  color: white;
+  cursor: default;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: white;
+}
+
+.navbar-toggle {
+  border-color: white;
+}
+
+.navbar-toggle:focus {
+  background-color: rgba(0,0,0,0) !important;
+}
+
+.navbar-toggle:hover,  {
+  background-color: #293744 !important;
+}
+
+.navbar-nav > li > a:focus, .navbar-nav > li > a:hover {
+  background-color: #1CC09E !important;
+  color: white !important;
+}
+
+.dropdown-menu {
+  background-color: #293744 !important;
+  border: 0;
+}
+
+.dropdown-menu > li > a {
+  color: white !important;
+}
+
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+  background-color: #1CC09E !important;
+  color: white !important;
+}
+
+.icon-bar {
+  background-color: white !important;
+}
+
+.nav-tabs > li > a {
+  border-radius: 0;
+  color: #848484;
+}
+
+.jumbotron {
+  background-color: white;
+  font-size: 16px;
+}
+
+.jumbotron p {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.jumbotron ul {
+  padding-left: 30px;
+  list-style: square;
+}
+
+.breadcrumb {
+  background-color: white;
+  border-radius: 0;
+  padding: 0;
+}
+
+.breadcrumb form {
+  padding: 10px;
+}
+
+.breadcrumb hr {
+  margin-top: 5px;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.btn-success {
+  background-color: #1CC09E;
+  border: 0;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active:focus {
+  background-color: #6AD7C2;
+}
+
+.modal-content {
+  background-color: rgba(0,0,0,0);
+}
+
+.modal-header {
+  background-color: #293744;
+  color: white;
+  opacity: 0.95;
+  padding-bottom: 10px;
+}
+
+.modal-header .close {
+  opacity: 1;
+  color: white;
+}
+
+.modal-body {
+  background-color: white;
+}
+
+.modal-footer {
+  background-color: #EFEFEF;
+}
+
+.form-control {
+  border-radius: 0;
+}
+
+.titulo {
+  font-family: 'Muli', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #808080;
+  text-shadow: 0px 2px 3px #EFEFEF;
 }
 
 .notificacao {
@@ -47,6 +207,24 @@ footer {
 
 .notificacao.ng-hide {
   opacity: 0;
+}
+
+.notificacao .alert {
+  border-radius: 0;
+}
+
+.notificacao .alert-success {
+  background-color: #1CC09E;
+  border: 0;
+  color: white;
+  opacity: 0.98;
+}
+
+.notificacao .alert-warning {
+  background-color: #CE4844;
+  border: 0;
+  color: white;
+  opacity: 0.98;
 }
 
 .notificacao span {
@@ -66,4 +244,10 @@ footer {
   position: fixed;
   top: 20px;
   right: 20px;
+  opacity: 1;
+  color: white;
+}
+
+#tela hr {
+  border-top: 1px solid #808080;
 }

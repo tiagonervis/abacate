@@ -138,8 +138,11 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
       //Se foi marcado para salvar autenticacao
       if (dados.permanecerConectado) {
 
+        //Define novo objeto date
+        let expira = new Date();
+
         //Expira cookie daqui 30 dias
-        let expira = new Date($scope.hoje + 30);
+        expira.setDate($scope.hoje.getDate() + 30);
 
         //Grava cookie
         $cookies.put('auth', basic, { expires: expira });

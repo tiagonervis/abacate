@@ -45,7 +45,14 @@ app.controller("genericController", function($scope, $routeParams, $http, $q) {
   $scope.listar = function () {
 
     //Chama api passando url do model e campo de pesquisa
-    $scope.api($scope.model.url, 'GET', $scope.view.pesquisa, $scope.view, 'registros');
+    $scope.api($scope.model.url, 'GET', $scope.view.pesquisa, $scope.view, 'registros', 'erros', function() {
+
+      for (var i in $scope.view.registros) {
+
+        $scope.view.registros[i].dataHora += 'Z';
+      }
+
+    });
   };
 
   //Metodo para abrir modal de edicao
