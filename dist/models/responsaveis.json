@@ -18,7 +18,7 @@
       "nome": "Código",
       "tipo": "text",
       "visivel": false,
-      "requirido": true,
+      "requerido": true,
       "editavel": false,
       "listar": true
     },
@@ -27,7 +27,7 @@
       "nome": "Nome",
       "tipo": "text",
       "visivel": true,
-      "requirido": true,
+      "requerido": true,
       "editavel": true,
       "listar": true
     },
@@ -36,7 +36,7 @@
       "nome": "E-mail",
       "tipo": "email",
       "visivel": true,
-      "requirido": true,
+      "requerido": true,
       "editavel": true,
       "listar": true
     },
@@ -45,7 +45,7 @@
       "nome": "Ramal",
       "tipo": "number",
       "visivel": true,
-      "requirido": false,
+      "requerido": false,
       "editavel": true,
       "listar": false
     },
@@ -54,7 +54,7 @@
       "nome": "Senha",
       "tipo": "password",
       "visivel": true,
-      "requirido": true,
+      "requerido": true,
       "editavel": true,
       "listar": false
     },
@@ -63,7 +63,7 @@
       "nome": "Ativo",
       "tipo": "checkbox",
       "visivel": true,
-      "requirido": false,
+      "requerido": false,
       "editavel": true,
       "listar": true,
       "verdadeiro": [1,"Sim"],

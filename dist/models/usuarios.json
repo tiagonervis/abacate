@@ -18,7 +18,7 @@
       "nome": "#",
       "tipo": "text",
       "visivel": false,
-      "requirido": true,
+      "requerido": true,
       "editavel": false,
       "listar": true
     },
@@ -27,7 +27,7 @@
       "nome": "Nome",
       "tipo": "text",
       "visivel": true,
-      "requirido": true,
+      "requerido": true,
       "editavel": true,
       "listar": true
     },
@@ -36,7 +36,7 @@
       "nome": "Usuário",
       "tipo": "text",
       "visivel": true,
-      "requirido": true,
+      "requerido": true,
       "editavel": true,
       "listar": true
     },
@@ -45,7 +45,7 @@
       "nome": "Senha",
       "tipo": "password",
       "visivel": true,
-      "requirido": true,
+      "requerido": true,
       "editavel": true,
       "listar": false
     },
@@ -54,26 +54,26 @@
       "nome": "E-mail",
       "tipo": "email",
       "visivel": true,
-      "requirido": true,
+      "requerido": true,
       "editavel": true,
       "listar": true
     },
     {
-      "campo": "ultimo_acesso",
+      "campo": "ultimoAcesso",
       "nome": "Último acesso",
       "tipo": "date",
       "visivel": false,
-      "requirido": false,
+      "requerido": false,
       "editavel": false,
       "listar": true,
-      "formato": "dd/MM/yyyy hh:ii:ss"
+      "formato": "dd/MM/yyyy HH:mm:ss"
     },
     {
       "campo": "ativo",
       "nome": "Ativo",
       "tipo": "checkbox",
       "visivel": true,
-      "requirido": false,
+      "requerido": false,
       "editavel": true,
       "listar": true,
       "verdadeiro": [1,"Sim"],

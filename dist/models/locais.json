@@ -18,7 +18,7 @@
       "nome": "Código",
       "tipo": "text",
       "visivel": false,
-      "requirido": true,
+      "requerido": true,
       "editavel": false,
       "listar": true
     },
@@ -27,7 +27,7 @@
       "nome": "Local",
       "tipo": "text",
       "visivel": true,
-      "requirido": true,
+      "requerido": true,
       "editavel": true,
       "listar": true
     },
@@ -36,7 +36,7 @@
       "nome": "Prédio",
       "tipo": "number",
       "visivel": true,
-      "requirido": true,
+      "requerido": true,
       "editavel": true,
       "listar": true
     },
@@ -45,7 +45,7 @@
       "nome": "Andar",
       "tipo": "number",
       "visivel": true,
-      "requirido": true,
+      "requerido": true,
       "editavel": true,
       "listar": true
     },
@@ -54,7 +54,7 @@
       "nome": "Responsável",
       "tipo": "select",
       "visivel": true,
-      "requirido": true,
+      "requerido": true,
       "editavel": true,
       "listar": true,
       "url": "responsaveis",
@@ -67,7 +67,7 @@
       "nome": "Observações",
       "tipo": "textarea",
       "visivel": true,
-      "requirido": false,
+      "requerido": false,
       "editavel": true,
       "listar": false,
       "linhas": 2

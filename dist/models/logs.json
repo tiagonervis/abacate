@@ -31,7 +31,7 @@
       "nome": "Código",
       "tipo": "text",
       "visivel": false,
-      "requirido": true,
+      "requerido": true,
       "editavel": false,
       "listar": true,
       "aba": 1
@@ -39,9 +39,20 @@
     {
       "campo": "dataHora",
       "nome": "Data/Hora",
-      "tipo": "datetime",
+      "tipo": "date",
       "visivel": true,
-      "requirido": true,
+      "requerido": true,
+      "editavel": false,
+      "listar": true,
+      "formato": "dd/MM/yyyy HH:mm:ss",
+      "aba": 1
+    },
+    {
+      "campo": "tabela",
+      "nome": "Tabela",
+      "tipo": "text",
+      "visivel": true,
+      "requerido": true,
       "editavel": false,
       "listar": true,
       "aba": 1
@@ -51,7 +62,7 @@
       "nome": "Ação",
       "tipo": "text",
       "visivel": true,
-      "requirido": true,
+      "requerido": true,
       "editavel": false,
       "listar": true,
       "aba": 1
@@ -61,7 +72,7 @@
       "nome": "Usuário",
       "tipo": "select",
       "visivel": true,
-      "requirido": true,
+      "requerido": true,
       "editavel": false,
       "listar": true,
       "url": "usuarios",
@@ -75,7 +86,7 @@
       "nome": "Registro",
       "tipo": "textarea",
       "visivel": true,
-      "requirido": true,
+      "requerido": true,
       "editavel": false,
       "listar": false,
       "linhas": 5,

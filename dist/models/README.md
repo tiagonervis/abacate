@@ -79,7 +79,7 @@ OBS: alguns campos se aplicam apenas a um tipo específico de campo.
 * nome - Nome do campo que é exibido no label e na tabela
 * tipo - Tipo de campo na modal (ver lista abaixo)
 * visivel - Exibir/Ocultar campo na modal
-* requirido - Se for true o campo será obrigatório e não será possivel salvar se preenche-lo
+* requerido - Se for true o campo será obrigatório e não será possivel salvar se preenche-lo
 * editavel - Permite/Bloqueia o campo para edição na modal
 * listar - Exibir/Ocultar campo na tabela
 * linhas - Tamanho de linhas no tipo textarea
@@ -102,3 +102,4 @@ OBS: alguns campos se aplicam apenas a um tipo específico de campo.
 * checkbox
 * select
 * file
+* date
