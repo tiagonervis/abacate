@@ -8,9 +8,7 @@
     "texto": "Procurar por data..."
   },
   "novo": {
-    "ativo": true,
-    "texto": "Novo",
-    "objeto": {}
+    "ativo": false
   },
   "abas": {
     "ativo": true,
