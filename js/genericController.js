@@ -1,5 +1,5 @@
 //Controller generico pode ser usado em qualquer pagina
-app.controller("genericController", function($scope, $routeParams, $http, $q, $location) {
+app.controller("genericController", function($scope, $routeParams, $http, $q, $location, $rootScope) {
 
   //Inicia variavel de controle
   $scope.carregado = false;
@@ -38,7 +38,21 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
         //Exibe conteudo da view
         $scope.carregado = true;
 
-      //Caso de erro
+        //Se model tem configuracao de novo registro
+        if ($scope.model.novo.ativo) {
+
+          //Exibe botao novo
+          $scope.botoes.novo = true;
+
+          //Registra chamada global por novo registro
+          $rootScope.$on("novo", function() {
+
+            //Se recebeu uma chamada exibe modal com novo objeto
+            $scope.editar($scope.model.novo.objeto);
+          });
+        }
+
+        //Caso de erro
       } else {
 
         //Exibe notificacao de erro
@@ -48,7 +62,7 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
         $scope.requisicoesPendentes--;
       }
 
-    //Metodo em caso de erro
+      //Metodo em caso de erro
     }, function (error) {
 
       //Exibe notificacao de erro
@@ -63,14 +77,7 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
   $scope.listar = function () {
 
     //Chama api passando url do model e campo de pesquisa
-    $scope.api($scope.model.url, 'GET', $scope.view.pesquisa, $scope.view, 'registros', 'erros', function() {
-
-      for (var i in $scope.view.registros) {
-
-        $scope.view.registros[i].dataHora += 'Z';
-      }
-
-    });
+    $scope.api($scope.model.url, 'GET', $scope.view.pesquisa, $scope.view, 'registros', 'erros', function() {});
   };
 
   //Metodo para abrir modal de edicao
@@ -117,7 +124,7 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
   $scope.excluir = function (id) {
 
     //Exibe mensagem de confirmacao
-    if (confirm("Confirmar exclusão do registro?")) {
+    $scope.exibirConfirmacao("Confirmar exclusão do registro?", function () {
 
       //Variavel local para receber o retorno da api
       let retorno = {};
@@ -131,6 +138,6 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
         //Atualiza lista de registros
         $scope.listar();
       });
-    }
+    });
   };
 });

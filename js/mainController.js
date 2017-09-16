@@ -1,5 +1,5 @@
 //Controller principal carregado na index
-app.controller("mainController", function($scope, $location, $http, $cookies, $timeout) {
+app.controller("mainController", function($scope, $location, $http, $cookies, $timeout, $rootScope) {
 
   //Disponibiliza variavel com data atual
   $scope.hoje = new Date();
@@ -9,6 +9,12 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
 
   //Inicia contador de requisiscoes pendentes
   $scope.requisicoesPendentes = 0;
+
+  //Objeto com o estado dos botoes responsivo
+  $scope.botoes = {
+    busca: false,
+    novo: false
+  };
 
   //Inicia variavel da sessao atual
   $scope.sessao = {
@@ -120,6 +126,17 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
     },2000);
   };
 
+  //Metodo para exibir uma janela de confirmacao
+  $scope.exibirConfirmacao = function(mensagem, callback, param) {
+
+    //Exibe confirmacao com os dados informados
+    $scope.confirmacao = {
+      ativo: true,
+      mensagem: mensagem,
+      confirmar: () => callback(param)
+    };
+  };
+
   //Metodo para efetuar login
   $scope.login = function (dados) {
 
@@ -221,6 +238,13 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
 
     //Redireciona para login
     $location.path(rotas.login);
+  };
+
+  //Metodo para abrir modal com novo registro
+  $scope.novo = function () {
+
+    //Emite chamada para funcao em outro controller
+    $rootScope.$emit("novo", {});
   };
 
   //Ao carregar controller tenta efetuar login

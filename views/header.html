@@ -1,12 +1,22 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false" ng-if="sessao.logado">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+      <span ng-if="sessao.logado">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="visible-xs">
+          <button type="button" class="navbar-toggle" ng-click="botoes.busca=!botoes.busca">
+            <span ng-if="!botoes.busca" class="glyphicon glyphicon-search"></span>
+            <span ng-if="botoes.busca" class="glyphicon glyphicon-remove"></span>
+          </button>
+          <button type="button" class="navbar-toggle" ng-if="botoes.novo" ng-click="novo()">
+            <span class="glyphicon glyphicon-plus"></span>
+          </button>
+        </span>
+      </span>
       <img alt="Logo" src="img/logo.png" class="navbar-brand" />
       <span class="navbar-brand">Abacate</span>
     </div>
