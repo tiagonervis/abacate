@@ -3,7 +3,8 @@ var app = angular.module("app", ['ngRoute', 'ngSanitize', 'ngCookies', 'ngAnimat
 
 //Objeto global de configuracao
 var configs = {
-  urlApi: 'https://abacate.herokuapp.com/app/'
+  urlApi: 'https://abacate.herokuapp.com/app/',
+  limiteRegistros: 25
 };
 
 //Declaracao das rotas
@@ -26,7 +27,6 @@ app.config(function ($routeProvider, $locationProvider) {
   .when(rotas.solicitacao, {templateUrl: 'views/solicitacao.html'})
   .when(rotas.generico, {templateUrl: 'views/generic.html'})
 
-
   //caso nao seja nenhum desses, redirecione para a home
   .otherwise({redirectTo: rotas.home});
-  });
+});

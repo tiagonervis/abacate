@@ -5,7 +5,8 @@
   "chave": "id",
   "busca": {
     "ativo": true,
-    "texto": "Procurar por data..."
+    "texto": "Procurar por tabela...",
+    "campo": "tabela"
   },
   "novo": {
     "ativo": false

@@ -4,6 +4,15 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
   //Inicia variavel de controle
   $scope.carregado = false;
 
+  //Inicia na pagina 0
+  $scope.paginaAtual = 0;
+
+  //Inicia sem ordenacao
+  $scope.ordenacao = {
+    campo: null,
+    ordem: false
+  };
+
   //Metodo para carregar model
   $scope.iniciar = function () {
 
@@ -52,6 +61,24 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
           });
         }
 
+        //Registra chamada global para consultar mais
+        $rootScope.$on("mais", function() {
+
+          //Se nao tem consultas pendentes
+          if ($scope.requisicoesPendentes === 0) {
+
+            //Se possui a quantidade limite de registros
+            if ($scope.view.registros.length === (($scope.paginaAtual + 1) * configs.limiteRegistros)) {
+
+              //Define proximo offset da pagina
+              $scope.paginaAtual += configs.limiteRegistros;
+
+              //Atualiza lista de registros
+              $scope.listar();
+            }
+          }
+        });
+
         //Caso de erro
       } else {
 
@@ -76,8 +103,43 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
   //Metodo para listar os registros
   $scope.listar = function () {
 
+    //Cria novo objeto
+    let obj = {};
+
+    //Define campo do objeto e valor
+    obj[$scope.model.busca.campo] = $scope.view.pesquisa;
+
+    //Compoe url para consulta
+    let url = $scope.model.url + '/pesquisar?';
+
+    //Insere numero da pagina e quatidade de registros
+    url += 'pagina=' + $scope.paginaAtual + '&quantidade=' + configs.limiteRegistros;
+
+    //Se foi definido um campo para ordenacao
+    if ($scope.ordenacao.campo !== null) {
+
+      //Cria variavel para ordem
+      let ordem = $scope.ordenacao.ordem ? 'asc' : 'desc';
+
+      //Insere campo ordenado e ordem na url
+      url += '&atributoOrdenado=' + $scope.ordenacao.campo + '&ordem=' + ordem;
+    }
+
     //Chama api passando url do model e campo de pesquisa
-    $scope.api($scope.model.url, 'GET', $scope.view.pesquisa, $scope.view, 'registros', 'erros', function() {});
+    $scope.api(url, 'POST', obj, $scope, 'registros', 'erros', function() {
+
+      //Se a pagina for maior que 0
+      if ($scope.paginaAtual > 0) {
+
+        //Concatena registros recebidos com os atuais
+        $scope.view.registros = $scope.view.registros.concat($scope.registros);
+
+      } else {
+
+        //Se for a primeira pagina sobreescreve array
+        $scope.view.registros = $scope.registros;
+      }
+    });
   };
 
   //Metodo para abrir modal de edicao
@@ -139,5 +201,25 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
         $scope.listar();
       });
     });
+  };
+
+  //Metodo para ordenar resultados pelo campo informado
+  $scope.ordenar = function (campo) {
+
+    //Se a ordenacao ja esta definida neste campo
+    if ($scope.ordenacao.campo === campo) {
+
+      //Inverte ordem definida
+      $scope.ordenacao.ordem = !$scope.ordenacao.ordem;
+    }
+
+    //Define novo campo de ordenacao
+    $scope.ordenacao.campo = campo;
+
+    //Reinicia offset da pagina
+    $scope.paginaAtual = 0;
+
+    //Atualiza lista de registros
+    $scope.listar();
   };
 });

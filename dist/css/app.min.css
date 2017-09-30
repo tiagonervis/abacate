@@ -30,6 +30,7 @@ th {
   background-color: #293744;
   opacity: 0.80;
   color: white;
+  cursor: pointer;
 }
 
 input, select, textarea {
@@ -77,6 +78,7 @@ input, select, textarea {
 .dropdown-menu {
   background-color: #293744 !important;
   border: 0;
+  border-radius: 0;
 }
 
 .dropdown-menu > li > a {
@@ -201,6 +203,10 @@ input, select, textarea {
   font-weight: 800;
   color: #808080;
   text-shadow: 0px 2px 3px #EFEFEF;
+}
+
+.titulo:before {
+  content: '\2022  ';
 }
 
 .notificacao {

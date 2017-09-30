@@ -5,7 +5,8 @@
   "chave": "id",
   "busca": {
     "ativo": true,
-    "texto": "Procurar por local..."
+    "texto": "Procurar por local...",
+    "campo": "local"
   },
   "novo": {
     "ativo": true,

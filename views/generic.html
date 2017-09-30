@@ -12,7 +12,7 @@
     </div>
     <div class="row hidden-xs">
       <div class="col-xs-7 col-sm-8 col-md-4 col-lg-4">
-        <h4 class="titulo">&bull; {{model.titulo}}</h4>
+        <h4 class="titulo">{{model.titulo}}</h4>
       </div>
       <div class="col-xs-5 col-sm-4 hidden-md hidden-lg text-right" ng-hide="!model.novo.ativo">
         <button class="btn btn-success" type="button" ng-click="editar(model.novo.objeto)">
@@ -48,7 +48,11 @@
         <table class="table table-bordered table-striped table-hover">
           <tr>
             <th width="110">Ações</th>
-            <th ng-repeat="atual in model.campos | filter:{listar:true}">{{atual.nome}}</th>
+            <th ng-repeat="atual in model.campos | filter:{listar:true}" ng-click="ordenar(atual.campo)">
+              {{atual.nome}}
+              <span ng-if="ordenacao.campo==atual.campo && ordenacao.ordem" class="glyphicon glyphicon-chevron-up"></span>
+              <span ng-if="ordenacao.campo==atual.campo && !ordenacao.ordem" class="glyphicon glyphicon-chevron-down"></span>
+            </th>
           </tr>
           <tr ng-repeat="linha in view.registros">
             <td align="center">

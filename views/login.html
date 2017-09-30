@@ -57,20 +57,22 @@
         </form>
       </div>
       <div class="breadcrumb" ng-hide="!esqueceuSenha">
-        <form ng-submit="enviarSenha()">
+        <form ng-submit="recuperar(dados)">
           <div class="form-group">
-            <label for="usuario">Digite seu E-mail</label>
-            <input id="usuario" type="text" class="form-control" placeholder="E-mail" required>
+            <label for="usuario">Usuário</label>
+            <input id="usuario" type="text" class="form-control" ng-model="dados.usuario" placeholder="Usuário" required>
           </div>
           <div class="form-group">
-            <div class="alert alert-success" role="alert" ng-hide="sucessoSenha==undefined">
-              <span class="glyphicon glyphicon-ok"></span>&nbsp;
-                Senha enviada com sucesso! Verifique seu e-mail.
-            </div>
-            <div class="alert alert-warning" role="alert" ng-hide="erroSenha==undefined" >
-              <span class="glyphicon glyphicon-remove"></span>&nbsp;
-              {{erroSenha}}
-            </div>
+            <label for="email">E-mail</label>
+            <input id="email" type="text" class="form-control" ng-model="dados.email" placeholder="E-mail" required>
+          </div>
+          <div class="form-group">
+            <label for="senha">Nova senha</label>
+            <input id="senha" type="password" class="form-control" ng-model="dados.senha" placeholder="Senha" required>
+          </div>
+          <div class="form-group">
+            <label for="repetir">Repetir</label>
+            <input id="repetir" type="password" class="form-control" ng-model="dados.repetir" placeholder="Senha" required>
           </div>
           <div class="row">
             <div class="col-xs-12">
@@ -79,7 +81,7 @@
           </div>
           <div class="row">
             <div class="col-xs-4">
-              <button type="submit" class="btn btn-success">Enviar senha</button>
+              <button type="submit" class="btn btn-success">Atualizar senha</button>
             </div>
             <div class="col-xs-8 text-right">
               <a href="" ng-click="esqueceuSenha=false">Lembrei minha senha!</a>

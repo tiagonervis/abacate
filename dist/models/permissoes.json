@@ -1,17 +1,13 @@
 {
-  "titulo": "Responsáveis",
-  "titulo_modal": "Cadastro de responsável",
-  "url": "responsaveis",
+  "titulo": "Permissões",
+  "titulo_modal": "Cadastro de permissão",
+  "url": "permissoes",
   "chave": "id",
   "busca": {
-    "ativo": true,
-    "texto": "Procurar por nome...",
-    "campo": "nome"
+    "ativo": false
   },
   "novo": {
-    "ativo": true,
-    "texto": "Novo",
-    "objeto": {}
+    "ativo": false
   },
   "campos": [
     {
@@ -24,8 +20,8 @@
       "listar": true
     },
     {
-      "campo": "nome",
-      "nome": "Nome",
+      "campo": "tabela",
+      "nome": "Tabela",
       "tipo": "text",
       "visivel": true,
       "requerido": true,
@@ -33,35 +29,41 @@
       "listar": true
     },
     {
-      "campo": "email",
-      "nome": "E-mail",
-      "tipo": "email",
-      "visivel": true,
-      "requerido": true,
-      "editavel": true,
-      "listar": true
-    },
-    {
-      "campo": "ramal",
-      "nome": "Ramal",
-      "tipo": "number",
+      "campo": "consultar",
+      "nome": "Consultar",
+      "tipo": "checkbox",
       "visivel": true,
       "requerido": false,
       "editavel": true,
-      "listar": false
+      "listar": true,
+      "verdadeiro": [1,"Sim"],
+      "falso": [0,"Não"]
     },
     {
-      "campo": "senha",
-      "nome": "Senha",
-      "tipo": "password",
+      "campo": "inserir",
+      "nome": "Inserir",
+      "tipo": "checkbox",
       "visivel": true,
-      "requerido": true,
+      "requerido": false,
       "editavel": true,
-      "listar": false
+      "listar": true,
+      "verdadeiro": [1,"Sim"],
+      "falso": [0,"Não"]
     },
     {
-      "campo": "ativo",
-      "nome": "Ativo",
+      "campo": "alterar",
+      "nome": "Alterar",
+      "tipo": "checkbox",
+      "visivel": true,
+      "requerido": false,
+      "editavel": true,
+      "listar": true,
+      "verdadeiro": [1,"Sim"],
+      "falso": [0,"Não"]
+    },
+    {
+      "campo": "deletar",
+      "nome": "Deletar",
       "tipo": "checkbox",
       "visivel": true,
       "requerido": false,

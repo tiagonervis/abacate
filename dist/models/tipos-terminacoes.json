@@ -5,7 +5,8 @@
   "chave": "id",
   "busca": {
     "ativo": true,
-    "texto": "Procurar por tipo de terminação..."
+    "texto": "Procurar por tipo de terminação...",
+    "campo": "terminacao"
   },
   "novo": {
     "ativo": true,

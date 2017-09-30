@@ -5,7 +5,8 @@
   "chave": "id",
   "busca": {
     "ativo": true,
-    "texto": "Procurar por tipo de cabling..."
+    "texto": "Procurar por tipo de cabling...",
+    "campo": "cabling"
   },
   "novo": {
     "ativo": true,

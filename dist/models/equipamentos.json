@@ -5,7 +5,8 @@
   "chave": "id",
   "busca": {
     "ativo": true,
-    "texto": "Procurar por descrição do equipamento..."
+    "texto": "Procurar por descrição do equipamento...",
+    "campo": "descricao"
   },
   "novo": {
     "ativo": true,

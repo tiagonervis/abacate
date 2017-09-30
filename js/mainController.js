@@ -38,6 +38,9 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
 
         //Redireciona para login
         $location.path(rotas.login);
+
+        //oculta imagem carregando
+        $scope.exibirCarregando = false;
       }
     }
   });
@@ -96,7 +99,7 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
         //Exibe notificacao do erro
         $scope.exibirNotificacao('Erro', retorno.erro, true);
 
-      //Se nao estiver ativo executa o callback
+        //Se nao estiver ativo executa o callback
       } else {
 
         //Se callback foi informado
@@ -209,7 +212,7 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
             $location.path(rotas.home);
           }
 
-        //Se ocorreu erros
+          //Se ocorreu erros
         } else {
 
           //Exibe notificacao do erro
@@ -240,6 +243,26 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
     $location.path(rotas.login);
   };
 
+  //Metodo para recuperar senha
+  $scope.recuperar = function (dados) {
+
+    //Variavel local para receber retorno
+    let retorno = {};
+
+    //Verifica se senhas sao iguais
+    if (dados.senha !== dados.repetir) {
+
+      //Exibe notificacao do erro
+      $scope.exibirNotificacao('Erro', "As senhas digitadas não são iguais, digite novamente", true);
+
+      //Retorna
+      return;
+    }
+
+    //Chama metodo da api para autenticacao
+    $scope.api('usuarios/recuperar', 'POST', dados, retorno, 'sucesso', 'erro', function () {});
+  };
+
   //Metodo para abrir modal com novo registro
   $scope.novo = function () {
 
@@ -249,4 +272,15 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
 
   //Ao carregar controller tenta efetuar login
   $scope.login();
+
+  //Monitora evento de scroll da pagina
+  $(window).scroll(function() {
+
+    //Se chegou no fim da pagina
+    if($(window).scrollTop() + $(window).height() == $(document).height()) {
+
+      //Emite chamada para funcao em outro controller
+      $rootScope.$emit("mais", {});
+    }
+  });
 });

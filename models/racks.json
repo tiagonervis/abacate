@@ -5,7 +5,8 @@
   "chave": "id",
   "busca": {
     "ativo": true,
-    "texto": "Procurar por identificação do rack..."
+    "texto": "Procurar por identificação do rack...",
+    "campo": "identificacao"
   },
   "novo": {
     "ativo": true,

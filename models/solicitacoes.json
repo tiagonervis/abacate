@@ -5,7 +5,8 @@
   "chave": "id",
   "busca": {
     "ativo": true,
-    "texto": "Procurar por ponto ou responsável..."
+    "texto": "Procurar por ponto ou responsável...",
+    "campo": "responsavel"
   },
   "novo": {
     "ativo": true,

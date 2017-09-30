@@ -20,7 +20,8 @@ O conteúdo do arquivo é composto por um cabeçalho e um array de campos:
   "chave": "id",
   "busca": {
     "ativo": true,
-    "texto": "Procurar por usuário..."
+    "texto": "Procurar por usuário...",
+    "campo": "nome_do_campo"
   },
   "novo": {
     "ativo": true,
@@ -61,6 +62,7 @@ Segue abaixo a relação de todos os campos possíveis no cabeçalho:
 * busca - Objeto contendo informações relacionadas a barra de pesquisa
   - ativo - Exibe/Oculta a barra de busca
   - texto - Texto exibido dentro do campo da busca
+  - campo - O nome do campo que sera buscado
 * novo - objeto conteudo informações relacionadas ao botão novo registro
   - ativo - Exibe/Oculta o botão novo registro
   - texto - Texto exibido dentro do botão novo registro
