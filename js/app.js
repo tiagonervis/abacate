@@ -4,7 +4,7 @@ var app = angular.module("app", ['ngRoute', 'ngSanitize', 'ngCookies', 'ngAnimat
 //Objeto global de configuracao
 var configs = {
   urlApi: 'https://abacate.herokuapp.com/app/',
-  limiteRegistros: 25
+  limiteRegistros: 10
 };
 
 //Declaracao das rotas

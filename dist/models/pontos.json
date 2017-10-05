@@ -175,7 +175,7 @@
     {
       "campo": "foto",
       "nome": "Foto",
-      "tipo": "file",
+      "tipo": "image",
       "visivel": true,
       "requerido": false,
       "editavel": true,

@@ -86,18 +86,18 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
       }
 
     }, function(error) {
-
+      
       //Decrementa requisicoes pendentes
       $scope.requisicoesPendentes--;
 
-      //Se ocorreu erro na requisicao devolve codigo e descricao do erro
-      retorno[erro] = error.statusText;
+      //Se ocorreu erro na requisicao devolve mensagem
+      retorno[erro] = error.data.message;
 
       //Se parametro exibir erro estiver setado
       if (exibirErro) {
 
         //Exibe notificacao do erro
-        $scope.exibirNotificacao('Erro', retorno.erro, true);
+        $scope.exibirNotificacao('Erro', retorno[erro], true);
 
         //Se nao estiver ativo executa o callback
       } else {
@@ -259,8 +259,11 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
       return;
     }
 
+    //Remove campo repetir
+    delete dados.repetir;
+
     //Chama metodo da api para autenticacao
-    $scope.api('usuarios/recuperar', 'POST', dados, retorno, 'sucesso', 'erro', function () {});
+    $scope.api('usuarios/resetarSenha', 'PATCH', dados, retorno, 'sucesso', 'erro', function () {});
   };
 
   //Metodo para abrir modal com novo registro
@@ -275,6 +278,13 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
 
   //Monitora evento de scroll da pagina
   $(window).scroll(function() {
+
+    //Se usuario nao esta logado
+    if ($scope.sessao.id === 0) {
+
+      //Retorna
+      return;
+    }
 
     //Se chegou no fim da pagina
     if($(window).scrollTop() + $(window).height() == $(document).height()) {

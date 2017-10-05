@@ -70,8 +70,8 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
             //Se possui a quantidade limite de registros
             if ($scope.view.registros.length === (($scope.paginaAtual + 1) * configs.limiteRegistros)) {
 
-              //Define proximo offset da pagina
-              $scope.paginaAtual += configs.limiteRegistros;
+              //Incrementa pagina
+              $scope.paginaAtual++;
 
               //Atualiza lista de registros
               $scope.listar();
@@ -147,6 +147,24 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
 
     //Copia objeto informado para o objeto selecionado
     angular.copy(obj, $scope.view.selecionado);
+
+    //Se for um registro ja existente
+    if ($scope.view.selecionado[$scope.model.chave] !== undefined) {
+
+      //Percorre lista de campos
+      for (var i in $scope.model.campos) {
+
+        //Se tem um campo tipo image
+        if ($scope.model.campos[i].tipo === 'image') {
+
+          //Compoe url para consulta
+          let url = $scope.model.url + '/' + $scope.view.selecionado[$scope.model.chave];
+
+          //Consulta o item via get para obter imagens
+          $scope.api(url, 'GET', null, $scope.view, 'selecionado');
+        }
+      }
+    }
 
     //Exibe modal
     $('.modal').modal();

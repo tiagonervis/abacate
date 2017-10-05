@@ -92,7 +92,12 @@ OBS: alguns campos se aplicam apenas a um tipo específico de campo.
 * chave - Nome do campo chave do objeto
 * descricao - Campo que deve ser exibido na tabela e no campo no tipo select
 * aba - Número da aba ao qual o campo pertence (Somente se possuir o objeto abas configurado)
-* arquivo - Nome da variavel que vai receber o objeto File lido no tipo file
+* arquivo - Nome da variavel que vai receber o objeto File lido no tipo image
+* colunas - Array com os objetos relativos as colunas quando for tipo table
+  - campo - Nome do campo do item da tabela
+  - nome - Nomo visivel da coluna no cabeçalho da tabela
+  - tipo - Tipo do campo (text, checkbox)
+  - editavel - Permite/Bloqueia a edição do campo
 
 ### Lista de campos implementados
 
@@ -103,5 +108,6 @@ OBS: alguns campos se aplicam apenas a um tipo específico de campo.
 * textarea
 * checkbox
 * select
-* file
+* image
 * date
+* table

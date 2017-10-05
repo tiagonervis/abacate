@@ -14,7 +14,7 @@
             <option value="" disabled>Selecione</option>
           </select>
         </div>
-        <div ng-switch-when="file">
+        <div ng-switch-when="image">
           <label for="{{atual.campo}}">{{atual.nome}}</label>
           <div class="thumbnail text-center">
             <span ng-if="view.selecionado[atual.campo]==null">Nenhuma imagem selecionada</span>
@@ -43,6 +43,26 @@
           <span ng-if="!atual.editavel">
             <input id="{{atual.campo}}" type="text" class="form-control" placeholder="{{atual.nome}}" ng-value="view.selecionado[atual.campo] | date:atual.formato" readonly="">
           </span>
+        </div>
+        <div ng-switch-when="table" class="table-responsive">
+          <table class="table table-bordered table-striped table-hover">
+            <tr align="center">
+              <th ng-repeat="coluna in atual.colunas">{{coluna.nome}}</th>
+            </tr>
+            <tr ng-repeat="item in view.selecionado[atual.campo]">
+              <td ng-repeat="coluna in atual.colunas">
+                <span ng-switch="coluna.tipo">
+                  <span ng-switch-when="checkbox">
+                    <input type="checkbox" ng-model="item[coluna.campo]" ng-disabled="!coluna.editavel">
+                  </span>
+                  <span ng-switch-default>
+                    <input type="text" ng-model="item[coluna.campo]" ng-hide="!coluna.editavel">
+                    <span ng-hide="coluna.editavel">{{item[coluna.campo]}}</span>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
         </div>
         <div ng-switch-default class="form-group">
           <label for="{{atual.campo}}">{{atual.nome}}</label>

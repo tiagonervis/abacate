@@ -13,6 +13,19 @@
     "texto": "Novo",
     "objeto": {}
   },
+  "abas": {
+    "ativo": true,
+    "lista": [
+      {
+        "id": 1,
+        "texto": "Dados"
+      },
+      {
+        "id": 2,
+        "texto": "Permissões"
+      }
+    ]
+  },
   "campos": [
     {
       "campo": "id",
@@ -21,7 +34,8 @@
       "visivel": false,
       "requerido": true,
       "editavel": false,
-      "listar": true
+      "listar": true,
+      "aba": 1
     },
     {
       "campo": "nome",
@@ -30,7 +44,8 @@
       "visivel": true,
       "requerido": true,
       "editavel": true,
-      "listar": true
+      "listar": true,
+      "aba": 1
     },
     {
       "campo": "usuario",
@@ -39,7 +54,8 @@
       "visivel": true,
       "requerido": true,
       "editavel": true,
-      "listar": true
+      "listar": true,
+      "aba": 1
     },
     {
       "campo": "senha",
@@ -48,7 +64,8 @@
       "visivel": true,
       "requerido": true,
       "editavel": true,
-      "listar": false
+      "listar": false,
+      "aba": 1
     },
     {
       "campo": "email",
@@ -57,7 +74,8 @@
       "visivel": true,
       "requerido": true,
       "editavel": true,
-      "listar": true
+      "listar": true,
+      "aba": 1
     },
     {
       "campo": "ultimoAcesso",
@@ -67,7 +85,8 @@
       "requerido": false,
       "editavel": false,
       "listar": true,
-      "formato": "dd/MM/yyyy HH:mm:ss"
+      "formato": "dd/MM/yyyy HH:mm:ss",
+      "aba": 1
     },
     {
       "campo": "ativo",
@@ -78,7 +97,50 @@
       "editavel": true,
       "listar": true,
       "verdadeiro": [1,"Sim"],
-      "falso": [0,"Não"]
+      "falso": [0,"Não"],
+      "aba": 1
+    },
+    {
+      "campo": "permissoes",
+      "nome": "Lista de Permissões",
+      "tipo": "table",
+      "visivel": true,
+      "requerido": false,
+      "editavel": true,
+      "listar": false,
+      "colunas": [
+        {
+          "campo": "tabela",
+          "nome": "Tabela",
+          "tipo": "text",
+          "editavel": false
+        },
+        {
+          "campo": "consultar",
+          "nome": "Consultar",
+          "tipo": "checkbox",
+          "editavel": true
+        },
+        {
+          "campo": "inserir",
+          "nome": "Inserir",
+          "tipo": "checkbox",
+          "editavel": true
+        },
+        {
+          "campo": "alterar",
+          "nome": "Alterar",
+          "tipo": "checkbox",
+          "editavel": true
+        },
+        {
+          "campo": "deletar",
+          "nome": "Deletar",
+          "tipo": "checkbox",
+          "editavel": true
+        }
+      ],
+      "aba": 2
     }
   ]
 }
