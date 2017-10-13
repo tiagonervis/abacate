@@ -11,6 +11,8 @@
   "novo": {
     "ativo": false
   },
+  "editar": true,
+  "excluir": false,   
   "abas": {
     "ativo": true,
     "lista": [

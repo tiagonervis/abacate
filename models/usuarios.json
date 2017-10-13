@@ -13,6 +13,8 @@
     "texto": "Novo",
     "objeto": {}
   },
+  "editar": true,
+  "excluir": true,
   "abas": {
     "ativo": true,
     "lista": [
@@ -108,6 +110,8 @@
       "requerido": false,
       "editavel": true,
       "listar": false,
+      "url": "usuarios/permissoes",
+      "parametro": "id",
       "colunas": [
         {
           "campo": "tabela",

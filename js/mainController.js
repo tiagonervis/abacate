@@ -86,7 +86,7 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
       }
 
     }, function(error) {
-      
+
       //Decrementa requisicoes pendentes
       $scope.requisicoesPendentes--;
 
@@ -263,7 +263,11 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
     delete dados.repetir;
 
     //Chama metodo da api para autenticacao
-    $scope.api('usuarios/resetarSenha', 'PATCH', dados, retorno, 'sucesso', 'erro', function () {});
+    $scope.api('usuarios/resetarSenha', 'PATCH', dados, retorno, 'sucesso', 'erro', function () {
+
+      //Exibe notificacao do sucesso
+      $scope.exibirNotificacao('Sucesso', "Senha atualizada com sucesso!");
+    });
   };
 
   //Metodo para abrir modal com novo registro

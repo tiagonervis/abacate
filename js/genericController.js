@@ -163,6 +163,19 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
           //Consulta o item via get para obter imagens
           $scope.api(url, 'GET', null, $scope.view, 'selecionado');
         }
+
+        //Se tem um campo tipo table
+        if ($scope.model.campos[i].tipo === 'table') {
+
+          //Define variavel para campo atual
+          let atual = $scope.model.campos[i];
+
+          //Compoe url para consulta
+          let url = atual.url + '/' + $scope.view.selecionado[atual.parametro];
+
+          //Executa consulta para receber dados do campo
+          $scope.api(url, 'GET', null, $scope.view.selecionado, atual.campo);
+        }
       }
     }
 
@@ -184,6 +197,25 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
 
       //Metodo 'novo'
       metodo = 'POST';
+
+    } else {
+
+      //Percorre lista de campos
+      for (var i in $scope.model.campos) {
+
+        //Se tem um campo tipo table
+        if ($scope.model.campos[i].tipo === 'table') {
+
+          //Define variavel para campo atual
+          let atual = $scope.model.campos[i];
+
+          //Compoe url para consulta
+          let url = atual.url + '/' + $scope.view.selecionado[atual.parametro];
+
+          //Executa consulta para receber dados do campo
+          $scope.api(url, 'POST', $scope.view.selecionado[atual.campo]);
+        }
+      }
     }
 
     //Chama api passando url atual, metodo atual, e o objeto selecionado

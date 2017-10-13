@@ -28,6 +28,8 @@ O conteúdo do arquivo é composto por um cabeçalho e um array de campos:
     "texto": "Novo",
     "objeto": {}
   },
+  "editar": true,
+  "excluir": true,   
   "abas": {
     "ativo": false,
     "lista": [
@@ -67,6 +69,8 @@ Segue abaixo a relação de todos os campos possíveis no cabeçalho:
   - ativo - Exibe/Oculta o botão novo registro
   - texto - Texto exibido dentro do botão novo registro
   - objeto - Objeto que é carregado na modal ao clicar em novo registro
+* editar - Exibe/Oculta botão para editar
+* excluir - Exibe/Oculta botão para excluir  
 * abas - Objeto OPCIONAL para exibir abas na modal  
   - ativo - Se for true será exibidas as abas na modal
   - lista - Array de objetos contendo os ids e nomes das abas conforme exemplo acima
@@ -87,12 +91,13 @@ OBS: alguns campos se aplicam apenas a um tipo específico de campo.
 * linhas - Tamanho de linhas no tipo textarea
 * verdadeiro - Array com valor e nome para exibição quando no tipo checkbox estiver selecionado
 * falso - Array com valor e nome para exibição quando no tipo checkbox não estiver selecionado
-* url - Url da API para carregar lista de registros no tipo select
+* url - Url da API para carregar lista de registros no tipo select ou table
 * lista - Nome da variavel que vai receber a lista de registros no tipo select
 * chave - Nome do campo chave do objeto
 * descricao - Campo que deve ser exibido na tabela e no campo no tipo select
 * aba - Número da aba ao qual o campo pertence (Somente se possuir o objeto abas configurado)
 * arquivo - Nome da variavel que vai receber o objeto File lido no tipo image
+* parametro - Nome do campo que será inserido na url das consultas quando for tipo table
 * colunas - Array com os objetos relativos as colunas quando for tipo table
   - campo - Nome do campo do item da tabela
   - nome - Nomo visivel da coluna no cabeçalho da tabela

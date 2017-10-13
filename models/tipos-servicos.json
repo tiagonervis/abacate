@@ -13,6 +13,8 @@
     "texto": "Novo",
     "objeto": {}
   },
+  "editar": true,
+  "excluir": true,   
   "campos": [
     {
       "campo": "id",
