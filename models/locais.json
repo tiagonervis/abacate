@@ -14,7 +14,7 @@
     "objeto": {}
   },
   "editar": true,
-  "excluir": true,   
+  "excluir": true,
   "campos": [
     {
       "campo": "id",
@@ -41,7 +41,8 @@
       "visivel": true,
       "requerido": true,
       "editavel": true,
-      "listar": true
+      "listar": true,
+      "passos": 1
     },
     {
       "campo": "andar",
@@ -50,7 +51,8 @@
       "visivel": true,
       "requerido": true,
       "editavel": true,
-      "listar": true
+      "listar": true,
+      "passos": 1      
     },
     {
       "campo": "responsavel",

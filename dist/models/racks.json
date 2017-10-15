@@ -14,7 +14,7 @@
     "objeto": {}
   },
   "editar": true,
-  "excluir": true,   
+  "excluir": true,
   "abas": {
     "ativo": true,
     "lista": [
@@ -61,36 +61,40 @@
       "requerido": true,
       "editavel": true,
       "listar": true,
+      "passos": 1,
       "aba": 1
     },
     {
       "campo": "profundidade",
-      "nome": "Profundidade",
+      "nome": "Profundidade (cm)",
       "tipo": "number",
       "visivel": true,
       "requerido": true,
       "editavel": true,
       "listar": false,
+      "passos": 0.1,
       "aba": 1
     },
     {
       "campo": "largura",
-      "nome": "Largura",
+      "nome": "Largura (cm)",
       "tipo": "number",
       "visivel": true,
       "requerido": true,
       "editavel": true,
       "listar": false,
+      "passos": 0.1,
       "aba": 1
     },
     {
       "campo": "altura",
-      "nome": "Altura",
+      "nome": "Altura (cm)",
       "tipo": "number",
       "visivel": true,
       "requerido": true,
       "editavel": true,
       "listar": false,
+      "passos": 0.1,        
       "aba": 1
     },
     {
@@ -163,7 +167,7 @@
     {
       "campo": "foto",
       "nome": "Foto",
-      "tipo": "file",
+      "tipo": "image",
       "visivel": true,
       "requerido": false,
       "editavel": true,

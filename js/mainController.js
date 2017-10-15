@@ -97,7 +97,7 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
       if (exibirErro) {
 
         //Exibe notificacao do erro
-        $scope.exibirNotificacao('Erro', retorno[erro], true);
+        $scope.exibirNotificacao('Erro', retorno[erro], true, 5000);
 
         //Se nao estiver ativo executa o callback
       } else {
@@ -113,7 +113,7 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
   };
 
   //Metodo para exibir uma notificacao na tela
-  $scope.exibirNotificacao = function(titulo, mensagem, erro) {
+  $scope.exibirNotificacao = function(titulo, mensagem, erro, tempo = 2000) {
 
     //Exibe notificacao com os dados informados
     $scope.notificacao = {
@@ -126,7 +126,7 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
     //Oculta notificacao apos tempo
     $timeout(function () {
       $scope.notificacao.ativo = false;
-    },2000);
+    },tempo);
   };
 
   //Metodo para exibir uma janela de confirmacao
@@ -216,7 +216,7 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
         } else {
 
           //Exibe notificacao do erro
-          $scope.exibirNotificacao('Erro', "Usuário e/ou senha inválidos", true);
+          $scope.exibirNotificacao('Erro', "Usuário e/ou senha inválidos", true, 5000);
 
           //Forca logout
           $scope.logout();
@@ -253,7 +253,7 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
     if (dados.senha !== dados.repetir) {
 
       //Exibe notificacao do erro
-      $scope.exibirNotificacao('Erro', "As senhas digitadas não são iguais, digite novamente", true);
+      $scope.exibirNotificacao('Erro', "As senhas digitadas não são iguais, digite novamente", true, 5000);
 
       //Retorna
       return;

@@ -83,7 +83,7 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
       } else {
 
         //Exibe notificacao de erro
-        $scope.exibirNotificacao('Erro', 'Falha ao carregar model', true);
+        $scope.exibirNotificacao('Erro', 'Falha ao carregar model', true, 5000);
 
         //Decrementa requisicoes pendentes
         $scope.requisicoesPendentes--;
@@ -93,7 +93,7 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
     }, function (error) {
 
       //Exibe notificacao de erro
-      $scope.exibirNotificacao('Erro', 'Falha ao carregar model', true);
+      $scope.exibirNotificacao('Erro', 'Falha ao carregar model', true, 5000);
 
       //Decrementa requisicoes pendentes
       $scope.requisicoesPendentes--;
@@ -154,14 +154,28 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
       //Percorre lista de campos
       for (var i in $scope.model.campos) {
 
+        //Variavel local para o campo
+        let atual = $scope.model.campos[i];
+
         //Se tem um campo tipo image
-        if ($scope.model.campos[i].tipo === 'image') {
+        if (atual.tipo === 'image') {
 
           //Compoe url para consulta
           let url = $scope.model.url + '/' + $scope.view.selecionado[$scope.model.chave];
 
           //Consulta o item via get para obter imagens
-          $scope.api(url, 'GET', null, $scope.view, 'selecionado');
+          $scope.api(url, 'GET', null, $scope.view, 'selecionado', null, function () {
+
+            //Variavel para campo atual
+            let campo = $scope.view.selecionado[atual.campo];
+
+            //Se o campo nao for nulo
+            if (campo !== null) {
+
+              //Sobreescreve campo removendo parte do conteudo que nao faz parte da imagem
+              $scope.view.selecionado[atual.campo] = campo.replace('/app/','');
+            }
+          });
         }
 
         //Se tem um campo tipo table

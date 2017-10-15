@@ -14,7 +14,7 @@
     "objeto": {}
   },
   "editar": true,
-  "excluir": true,   
+  "excluir": true,
   "campos": [
     {
       "campo": "id",
@@ -50,7 +50,8 @@
       "visivel": true,
       "requerido": false,
       "editavel": true,
-      "listar": false
+      "listar": false,
+      "passos": 1        
     },
     {
       "campo": "senha",

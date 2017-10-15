@@ -4,11 +4,15 @@
             <input type="checkbox" ng-model="view.selecionado[atual.campo]" ng-true-value="{{atual.verdadeiro[0]}}" ng-false-value="{{atual.falso[0]}}">&nbsp;{{atual.nome}}
           </label>
         </div>
+        <div ng-switch-when="number" class="form-group">
+          <label for="{{atual.campo}}">{{atual.nome}}</label>
+          <input id="{{atual.campo}}" type="number" class="form-control" placeholder="{{atual.nome}}" ng-model="view.selecionado[atual.campo]" ng-required="atual.requerido" ng-readonly="!atual.editavel" step="{{atual.passos}}">
+        </div>
         <div ng-switch-when="textarea" class="form-group">
           <label for="{{atual.campo}}">{{atual.nome}}</label>
           <textarea id="{{atual.campo}}" class="form-control" placeholder="{{atual.nome}}" ng-model="view.selecionado[atual.campo]" ng-required="atual.requerido" ng-readonly="!atual.editavel" rows="{{atual.linhas}}"></textarea>
         </div>
-        <div ng-switch-when="select" class="form-group" ng-init="api(atual.url, 'GET', null, view, atual.lista)">
+        <div ng-switch-when="select" class="form-group" ng-init="api(atual.url + '/?pagina=0&quantidade=20', 'GET', null, view, atual.lista)">
           <label for="{{atual.campo}}">{{atual.nome}}</label>
           <select id="{{atual.campo}}" class="form-control" ng-model="view.selecionado[atual.campo]" ng-required="atual.requerido" ng-disabled="!atual.editavel" ng-options="item as item[atual.descricao] for item in view[atual.lista] track by item.id">
             <option value="" disabled>Selecione</option>

@@ -14,7 +14,7 @@
     "objeto": {}
   },
   "editar": true,
-  "excluir": true,   
+  "excluir": true,
   "abas": {
     "ativo": true,
     "lista": [
@@ -55,22 +55,24 @@
     },
     {
       "campo": "comprimento",
-      "nome": "Comprimento",
+      "nome": "Comprimento (m)",
       "tipo": "number",
       "visivel": true,
       "requerido": true,
       "editavel": true,
       "listar": false,
+      "passos": 0.1,
       "aba": 1
     },
     {
       "campo": "certificacao",
-      "nome": "Certificação",
+      "nome": "Certificação (dB)",
       "tipo": "number",
       "visivel": true,
       "requerido": true,
       "editavel": true,
       "listar": false,
+      "passos": 0.1,
       "aba": 1
     },
     {
@@ -81,6 +83,7 @@
       "requerido": true,
       "editavel": true,
       "listar": true,
+      "passos": 1,
       "aba": 1
     },
     {
@@ -161,6 +164,7 @@
       "requerido": true,
       "editavel": true,
       "listar": false,
+      "passos": 1,
       "aba": 2
     },
     {
