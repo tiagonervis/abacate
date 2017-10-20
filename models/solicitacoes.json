@@ -5,16 +5,16 @@
   "chave": "id",
   "busca": {
     "ativo": true,
-    "texto": "Procurar por ponto ou responsável...",
-    "campo": "responsavel"
+    "texto": "Procurar por ponto de rede...",
+    "campo": "ponto"
   },
   "novo": {
     "ativo": true,
-    "texto": "Novo",
+    "texto": "Nova solicitação",
     "objeto": {}
   },
   "editar": true,
-  "excluir": true,   
+  "excluir": true,
   "abas": {
     "ativo": true,
     "lista": [
@@ -42,10 +42,10 @@
     {
       "campo": "abertura",
       "nome": "Data de abertura",
-      "tipo": "text",
+      "tipo": "date",
       "visivel": true,
-      "requerido": true,
-      "editavel": false,
+      "requerido": false,
+      "editavel": true,
       "listar": true,
       "aba": 1
     },
@@ -94,10 +94,10 @@
     {
       "campo": "fechamento",
       "nome": "Data de fechamento",
-      "tipo": "text",
+      "tipo": "date",
       "visivel": true,
-      "requerido": true,
-      "editavel": false,
+      "requerido": false,
+      "editavel": true,
       "listar": true,
       "aba": 2
     },
@@ -106,7 +106,7 @@
       "nome": "Resp. Fechamento",
       "tipo": "select",
       "visivel": true,
-      "requerido": true,
+      "requerido": false,
       "editavel": true,
       "listar": false,
       "url": "usuarios",
