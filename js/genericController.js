@@ -190,6 +190,30 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
           //Executa consulta para receber dados do campo
           $scope.api(url, 'GET', null, $scope.view.selecionado, atual.campo);
         }
+
+        //Se tem um campo tipo date ou datetime
+        if ($scope.model.campos[i].tipo === 'date' || $scope.model.campos[i].tipo === 'datetime') {
+
+          //Define variavel para campo atual
+          let atual = $scope.model.campos[i];
+
+          //Variavel para campo atual
+          let campo = $scope.view.selecionado[atual.campo];
+
+          //Se o campo nao for nulo
+          if (campo !== null) {
+
+            //Converte data no formato javascript
+            $scope.view.selecionado[atual.campo] = campo + 'Z';
+
+            //Se for tipo datetime
+            if ($scope.model.campos[i].tipo === 'datetime') {
+
+              //Separa campo da hora
+              $scope.view.selecionado[atual.campo+'-hora'] = campo.split('T')[1].split('.')[0];
+            }
+          }
+        }
       }
     }
 
@@ -228,6 +252,44 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
 
           //Executa consulta para receber dados do campo
           $scope.api(url, 'POST', $scope.view.selecionado[atual.campo]);
+        }
+      }
+    }
+
+    //Percorre lista de campos
+    for (var i in $scope.model.campos) {
+
+      //Se tem um campo tipo date ou datetime
+      if ($scope.model.campos[i].tipo === 'date' || $scope.model.campos[i].tipo === 'datetime') {
+
+        //Define variavel para campo atual
+        let atual = $scope.model.campos[i];
+
+        //Variavel para campo atual
+        let campo = $scope.view.selecionado[atual.campo];
+
+        //Se o campo nao for nulo
+        if (campo !== undefined && campo !== null) {
+
+          //Se o campo for um tipo Date
+          if (typeof(campo) === 'object') {
+
+            //Obtem data em formato iso
+            campo = campo.toISOString();
+          }
+
+          //Remove Z da data
+          $scope.view.selecionado[atual.campo] = campo.replace('Z','');
+
+          //Se for tipo datetime
+          if ($scope.model.campos[i].tipo === 'datetime') {
+
+            //Define variavel para campo hora
+            let hora = $scope.view.selecionado[atual.campo+'-hora'];
+
+            //Insere hora na data formatada
+            $scope.view.selecionado[atual.campo] = campo.split('T')[0] + 'T' + hora + '.001';
+          }
         }
       }
     }

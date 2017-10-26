@@ -42,11 +42,12 @@
     {
       "campo": "abertura",
       "nome": "Data de abertura",
-      "tipo": "date",
+      "tipo": "datetime",
       "visivel": true,
-      "requerido": false,
+      "requerido": true,
       "editavel": true,
       "listar": true,
+      "formato": "dd/MM/yyyy HH:mm:ss",
       "aba": 1
     },
     {
@@ -70,7 +71,7 @@
       "visivel": true,
       "requerido": true,
       "editavel": true,
-      "listar": false,
+      "listar": true,
       "url": "responsaveis",
       "chave": "id",
       "lista": "responsaveis",
@@ -94,11 +95,12 @@
     {
       "campo": "fechamento",
       "nome": "Data de fechamento",
-      "tipo": "date",
+      "tipo": "datetime",
       "visivel": true,
       "requerido": false,
       "editavel": true,
       "listar": true,
+      "formato": "dd/MM/yyyy HH:mm:ss",
       "aba": 2
     },
     {
@@ -124,6 +126,18 @@
       "editavel": true,
       "listar": false,
       "linhas": 3,
+      "aba": 2
+    },
+    {
+      "campo": "fechado",
+      "nome": "Fechado",
+      "tipo": "checkbox",
+      "visivel": true,
+      "requerido": false,
+      "editavel": true,
+      "listar": true,
+      "verdadeiro": [1,"Sim"],
+      "falso": [0,"Não"],
       "aba": 2
     }
   ]

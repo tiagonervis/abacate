@@ -115,4 +115,5 @@ OBS: alguns campos se aplicam apenas a um tipo específico de campo.
 * select
 * image
 * date
+* datetime
 * table

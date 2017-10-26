@@ -164,6 +164,14 @@ input, select, textarea {
   border-radius: 0;
 }
 
+.form-inline {
+  display: block;
+}
+
+.form-inline input {
+  width: 49% !important;
+}
+
 .carregando {
   position: fixed;
   top: 0px;

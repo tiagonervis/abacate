@@ -67,6 +67,7 @@
               <span ng-switch="atual.tipo">
                 <span ng-switch-when="email"><a ng-href="mailto:{{linha[atual.campo]}}">{{linha[atual.campo]}}</a></span>
                 <span ng-switch-when="date">{{linha[atual.campo] | date:atual.formato}}</span>
+                <span ng-switch-when="datetime">{{linha[atual.campo] | date:atual.formato}}</span>
                 <span ng-switch-when="checkbox">{{linha[atual.campo] == atual.verdadeiro[0]? atual.verdadeiro[1] : atual.falso[1]}}</a></span>
                 <span ng-switch-when="select">{{linha[atual.campo][atual.descricao]}}</span>
                 <span ng-switch-default>{{linha[atual.campo]}}</span>
@@ -161,10 +162,20 @@
         <div ng-switch-when="date">
           <label for="{{atual.campo}}">{{atual.nome}}</label>
           <span ng-if="atual.editavel">
-            <input id="{{atual.campo}}" type="text" class="form-control" placeholder="{{atual.nome}}" ng-model="view.selecionado[atual.campo]" ng-required="atual.requerido" ui-date-mask>
+            <input id="{{atual.campo}}" type="text" class="form-control" placeholder="DD/MM/AAAA" ng-model="view.selecionado[atual.campo]" ng-required="atual.requerido" ui-date-mask>
           </span>
           <span ng-if="!atual.editavel">
-            <input id="{{atual.campo}}" type="text" class="form-control" placeholder="{{atual.nome}}" ng-value="view.selecionado[atual.campo] | date:atual.formato" readonly="">
+            <input id="{{atual.campo}}" type="text" class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" ng-value="view.selecionado[atual.campo] | date:atual.formato" readonly="">
+          </span>
+        </div>
+        <div ng-switch-when="datetime">
+          <label for="{{atual.campo}}">{{atual.nome}}</label>
+          <span ng-if="atual.editavel" class="form-inline">
+            <input id="{{atual.campo}}" type="text" class="form-control" placeholder="DD/MM/AAAA" ng-model="view.selecionado[atual.campo]" ng-required="atual.requerido" ui-date-mask>
+            <input id="{{atual.campo}}" type="text" class="form-control" placeholder="HH:MM:SS" ng-model="view.selecionado[atual.campo+'-hora']" ng-required="atual.requerido" ui-time-mask>
+          </span>
+          <span ng-if="!atual.editavel">
+            <input id="{{atual.campo}}" type="text" class="form-control" placeholder="DD/MM/AAAA HH:MM:SS" ng-value="view.selecionado[atual.campo] | date:atual.formato" readonly="">
           </span>
         </div>
         <article ng-switch-when="table" class="table-responsive">
