@@ -106,8 +106,20 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
     //Cria novo objeto
     let obj = {};
 
-    //Define campo do objeto e valor
-    obj[$scope.model.busca.campo] = $scope.view.pesquisa;
+    //Se o campo de busca for um objeto
+    if (typeof($scope.model.busca.campo) === 'object') {
+
+      //Converte objeto em string
+      let json = JSON.stringify($scope.model.busca.campo);
+
+      //Substitui palavra busca pelo conteudo da pesquisa e converte em objeto
+      obj = JSON.parse(json.replace('busca', $scope.view.pesquisa));
+
+    } else {
+
+      //Define campo do objeto e valor
+      obj[$scope.model.busca.campo] = $scope.view.pesquisa;
+    }
 
     //Compoe url para consulta
     let url = $scope.model.url + '/pesquisar?';

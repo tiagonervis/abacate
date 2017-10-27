@@ -75,8 +75,12 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
       //Decrementa requisicoes pendentes
       $scope.requisicoesPendentes--;
 
-      //Retorna dados na variavel sucesso
-      retorno[sucesso] = result.data;
+      //Se foi definido retorno e sucesso
+      if (retorno !== undefined && sucesso !== undefined) {
+
+        //Retorna dados na variavel sucesso
+        retorno[sucesso] = result.data;
+      }
 
       //Se callback foi informado
       if (callback !== undefined) {
@@ -90,8 +94,12 @@ app.controller("mainController", function($scope, $location, $http, $cookies, $t
       //Decrementa requisicoes pendentes
       $scope.requisicoesPendentes--;
 
-      //Se ocorreu erro na requisicao devolve mensagem
-      retorno[erro] = error.data.message;
+      //Se foi definido retorno e erro
+      if (retorno !== undefined && erro !== undefined) {
+
+        //Se ocorreu erro na requisicao devolve mensagem
+        retorno[erro] = error.data.message;
+      }
 
       //Se parametro exibir erro estiver setado
       if (exibirErro) {

@@ -5,8 +5,12 @@
   "chave": "id",
   "busca": {
     "ativo": true,
-    "texto": "Procurar por ponto de rede...",
-    "campo": "ponto"
+    "texto": "Procurar por cód do ponto...",
+    "campo": {
+      "ponto": {
+        "codPonto": "busca"
+      }
+    }
   },
   "novo": {
     "ativo": true,
