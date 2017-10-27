@@ -40,7 +40,7 @@
     {
       "campo": "dataHora",
       "nome": "Data/Hora",
-      "tipo": "date",
+      "tipo": "datetime",
       "visivel": true,
       "requerido": true,
       "editavel": false,
