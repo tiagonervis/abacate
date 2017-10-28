@@ -230,7 +230,7 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
     }
 
     //Exibe modal
-    $('.modal').modal();
+    $('#modal-editar').modal();
   };
 
   //Metodo para salvar o objeto atual selecionado
@@ -313,7 +313,7 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
       $scope.exibirNotificacao('Sucesso', 'Registro salvo com sucesso!', false);
 
       //Fecha a modal
-      $('.modal').modal('toggle');
+      $('#modal-editar').modal('toggle');
 
       //Atualiza lista de registros
       $scope.listar();
@@ -359,5 +359,106 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
 
     //Atualiza lista de registros
     $scope.listar();
+  };
+
+  //Metodo para abrir modal para imprimir relatorio
+  $scope.imprimir = function () {
+
+    //Inicia novo objeto relatorio
+    $scope.view.relatorio = {
+      ordenar: $scope.model.chave,
+      ordem: 'asc',
+      limite: 0,
+      campos: []
+    };
+
+    //Percorre todos os campos do model
+    for (var i in $scope.model.campos) {
+
+      //Variavel para campo atual
+      var atual = $scope.model.campos[i];
+
+      //Cria objeto local
+      var obj = {};
+
+      //Define campo como incluido
+      obj.incluir = true;
+
+      //Define nome visivel
+      obj.nome = atual.nome;
+
+      //Define nome do campo
+      obj.campo = atual.campo;
+
+      //Se o campo for um tipo select
+      if (atual.tipo === 'select') {
+
+        //Define nome do campo e nome do atributo a exibir
+        obj.campo = atual.campo + '.' +  atual.descricao;
+      }
+
+      //Insere objeto no array de campos
+      $scope.view.relatorio.campos.push(obj);
+    }
+
+    //Exibe modal imprimir
+    $('#modal-imprimir').modal();
+  };
+
+  //Metodo para montar url de impressao do relatorio
+  $scope.imprimirOK = function () {
+
+    //Variavel local para objeto relatorio
+    var relatorio = $scope.view.relatorio;
+
+    //Inicia array de titulos
+    var titulos = [];
+
+    //Inicia array de atribuitos
+    var atributos = [];
+
+    //Percorre campos do relatorio
+    for (var i in relatorio.campos) {
+
+      //Variavel para campo atual
+      var atual = relatorio.campos[i];
+
+      //Se campo deve ser incluido no relatorio
+      if (atual.incluir) {
+
+        //Insere nome nos titulos
+        titulos.push(atual.nome);
+
+        //Insere campo nos atributos
+        atributos.push(atual.campo);
+      }
+    }
+
+    //Objeto para envio
+    var obj = {};
+    obj.tabela = $scope.model.url;
+    obj.titulos = titulos;
+    obj.atributos = atributos;
+
+    //Compoe url da consulta a api
+    var url = configs.urlApi + $scope.model.url + '/pdf?';
+
+    //Insere campo de ordenacao
+    url += 'atributoOrdenado=' + relatorio.ordenar;
+
+    //Insere tipo de ordenacao
+    url += '&ordem=' + relatorio.ordem;
+
+    //Se o limite for maior que 0
+    if (relatorio.limite > 0) {
+
+      //Insere quantidade na url
+      url += '&qunatidade=' + relatorio.limite;
+    }
+
+    url += '&obj=' + btoa(JSON.stringify(obj));
+
+    //Abre nova aba com a url montada
+    window.open(url, '_blank');
   };
 });

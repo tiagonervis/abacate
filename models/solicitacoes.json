@@ -17,6 +17,11 @@
     "texto": "Nova solicitação",
     "objeto": {}
   },
+  "imprimir": {
+    "ativo": true,
+    "texto": "Imprimir",
+    "titulo": "Relatório de solicitações"
+  },
   "editar": true,
   "excluir": true,
   "abas": {

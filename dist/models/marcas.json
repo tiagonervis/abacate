@@ -13,8 +13,13 @@
     "texto": "Novo",
     "objeto": {}
   },
+  "imprimir": {
+    "ativo": true,
+    "texto": "Imprimir",
+    "titulo": "Relatório de marcas"
+  },
   "editar": true,
-  "excluir": true,   
+  "excluir": true,
   "campos": [
     {
       "campo": "id",
