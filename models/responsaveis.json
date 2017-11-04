@@ -13,6 +13,12 @@
     "texto": "Novo",
     "objeto": {}
   },
+  "imprimir": {
+    "ativo": true,
+    "texto": "Imprimir",
+    "titulo": "Relatório de responsáveis",
+    "entidade": "Responsavel"
+  },
   "editar": true,
   "excluir": true,
   "campos": [
@@ -51,7 +57,7 @@
       "requerido": false,
       "editavel": true,
       "listar": false,
-      "passos": 1        
+      "passos": 1
     },
     {
       "campo": "senha",

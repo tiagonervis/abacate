@@ -366,6 +366,7 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
 
     //Inicia novo objeto relatorio
     $scope.view.relatorio = {
+      titulo: $scope.model.imprimir.titulo,
       ordenar: $scope.model.chave,
       ordem: 'asc',
       limite: 0,
@@ -436,26 +437,30 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
 
     //Objeto para envio
     var obj = {};
-    obj.tabela = $scope.model.url;
+    //obj.titulo = relatorio.titulo;
+    obj.entidadeDeExemplo = {tabela: atual.tabela};
     obj.titulos = titulos;
     obj.atributos = atributos;
-
-    //Compoe url da consulta a api
-    var url = configs.urlApi + $scope.model.url + '/pdf?';
-
-    //Insere campo de ordenacao
-    url += 'atributoOrdenado=' + relatorio.ordenar;
-
-    //Insere tipo de ordenacao
-    url += '&ordem=' + relatorio.ordem;
+    obj.atributoOrdenado = relatorio.ordenar;
+    obj.ordem = relatorio.ordem;
 
     //Se o limite for maior que 0
     if (relatorio.limite > 0) {
 
-      //Insere quantidade na url
-      url += '&qunatidade=' + relatorio.limite;
+      //Define como primeira pagina
+      obj.pagina = 0;
+
+      //Insere quantidade no objeto
+      obj.quantidade = relatorio.limite;
     }
 
+    //Compoe url da consulta a api
+    var url = configs.urlApi + 'pdf?';
+
+    //Insere entidade na consulta
+    url += 'entidade=' + $scope.model.imprimir.entidade;
+
+    //Insere objeto em base64 na consulta
     url += '&obj=' + btoa(JSON.stringify(obj));
 
     //Abre nova aba com a url montada

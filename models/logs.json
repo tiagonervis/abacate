@@ -11,6 +11,12 @@
   "novo": {
     "ativo": false
   },
+  "imprimir": {
+    "ativo": true,
+    "texto": "Imprimir",
+    "titulo": "Relatório de registro de logs",
+    "entidade": "RegistroLog"
+  },
   "editar": true,
   "excluir": false,
   "abas": {

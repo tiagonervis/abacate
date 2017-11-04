@@ -13,8 +13,14 @@
     "texto": "Novo",
     "objeto": {}
   },
+  "imprimir": {
+    "ativo": true,
+    "texto": "Imprimir",
+    "titulo": "Relatório de tipos de equipamentos",
+    "entidade": "TipoEquipamento"
+  },
   "editar": true,
-  "excluir": true,   
+  "excluir": true,
   "campos": [
     {
       "campo": "id",

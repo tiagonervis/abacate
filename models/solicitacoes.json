@@ -20,7 +20,8 @@
   "imprimir": {
     "ativo": true,
     "texto": "Imprimir",
-    "titulo": "Relatório de solicitações"
+    "titulo": "Relatório de solicitações",
+    "entidade": "Solicitacao"
   },
   "editar": true,
   "excluir": true,

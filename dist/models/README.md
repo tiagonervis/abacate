@@ -28,6 +28,12 @@ O conteúdo do arquivo é composto por um cabeçalho e um array de campos:
     "texto": "Novo",
     "objeto": {}
   },
+  "imprimir": {
+    "ativo": true,
+    "texto": "Imprimir",
+    "titulo": "Relatório de usuários",
+    "entidade": "RegistroLog"
+  },  
   "editar": true,
   "excluir": true,   
   "abas": {
@@ -69,6 +75,11 @@ Segue abaixo a relação de todos os campos possíveis no cabeçalho:
   - ativo - Exibe/Oculta o botão novo registro
   - texto - Texto exibido dentro do botão novo registro
   - objeto - Objeto que é carregado na modal ao clicar em novo registro
+* imprimir - objeto conteudo informações relacionadas ao botão imprimir
+  - ativo - Exibe/Oculta o botão imprimir
+  - texto - Texto exibido dentro do botão imprimir
+  - titulo - Titulo da janela exibida para selecionar opções do relatório
+  - entidade - Nome da entidade (classe java) que será usada para gerar o relatório
 * editar - Exibe/Oculta botão para editar
 * excluir - Exibe/Oculta botão para excluir  
 * abas - Objeto OPCIONAL para exibir abas na modal  

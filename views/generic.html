@@ -253,6 +253,10 @@
                 <div id="ordenacao" role="tabpanel" class="tab-pane active">
                   <br>
                   <div class="form-group">
+                    <label for="ordenar">Título:</label>
+                    <input type="text" class="form-control" ng-model="view.relatorio.titulo" required="">
+                  </div>
+                  <div class="form-group">
                     <label for="ordenar">Ordenar por:</label>
                     <select id="ordenar" class="form-control" ng-model="view.relatorio.ordenar" required="" ng-options="campo.campo as campo.nome for campo in model.campos">
                       <option value="" disabled>Selecione</option>

@@ -16,7 +16,8 @@
   "imprimir": {
     "ativo": true,
     "texto": "Imprimir",
-    "titulo": "Relatório de marcas"
+    "titulo": "Relatório de marcas",
+    "entidade": "Marca"
   },
   "editar": true,
   "excluir": true,

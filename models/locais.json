@@ -13,6 +13,12 @@
     "texto": "Novo",
     "objeto": {}
   },
+  "imprimir": {
+    "ativo": true,
+    "texto": "Imprimir",
+    "titulo": "Relatório de locais",
+    "entidade": "Local"
+  },
   "editar": true,
   "excluir": true,
   "campos": [
@@ -52,7 +58,7 @@
       "requerido": true,
       "editavel": true,
       "listar": true,
-      "passos": 1      
+      "passos": 1
     },
     {
       "campo": "responsavel",

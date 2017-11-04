@@ -13,6 +13,12 @@
     "texto": "Novo",
     "objeto": {}
   },
+  "imprimir": {
+    "ativo": true,
+    "texto": "Imprimir",
+    "titulo": "Relatório de usuários",
+    "entidade": "Usuario"
+  },
   "editar": true,
   "excluir": true,
   "abas": {
