@@ -175,6 +175,9 @@ input, select, textarea {
 
 .form-inline input {
   width: 49% !important;
+  float: left;
+  margin-right: 1%;
+  margin-bottom: 10px;
 }
 
 .carregando {

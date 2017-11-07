@@ -47,6 +47,9 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
         //Exibe conteudo da view
         $scope.carregado = true;
 
+        //Oculta botao de novo
+        $scope.botoes.novo = false;
+
         //Se model tem configuracao de novo registro
         if ($scope.model.novo.ativo) {
 
