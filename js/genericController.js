@@ -440,7 +440,8 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
 
     //Objeto para envio
     var obj = {};
-    //obj.titulo = relatorio.titulo;
+    obj.authorization = $scope.sessao.auth;
+    obj.nomeRelatorio = relatorio.titulo;
     obj.entidadeDeExemplo = {tabela: atual.tabela};
     obj.titulos = titulos;
     obj.atributos = atributos;
