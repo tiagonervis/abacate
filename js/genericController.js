@@ -464,8 +464,8 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
     //Insere entidade na consulta
     url += 'entidade=' + $scope.model.imprimir.entidade;
 
-    //Insere objeto em base64 na consulta
-    url += '&obj=' + btoa(JSON.stringify(obj));
+    //Converte em URI e insere objeto em base64 na consulta
+    url += '&obj=' + btoa(encodeURI(JSON.stringify(obj)));
 
     //Abre nova aba com a url montada
     window.open(url, '_blank');
