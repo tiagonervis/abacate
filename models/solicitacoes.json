@@ -46,7 +46,7 @@
       "visivel": false,
       "requerido": true,
       "editavel": false,
-      "listar": true,
+      "listar": false,
       "aba": 1
     },
     {
@@ -95,7 +95,7 @@
       "visivel": true,
       "requerido": true,
       "editavel": true,
-      "listar": false,
+      "listar": true,
       "url": "tipos_solicitacoes",
       "chave": "id",
       "lista": "tiposSolicitacoes",
@@ -109,7 +109,7 @@
       "visivel": true,
       "requerido": false,
       "editavel": true,
-      "listar": true,
+      "listar": false,
       "formato": "dd/MM/yyyy HH:mm:ss",
       "aba": 2
     },
