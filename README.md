@@ -2,10 +2,10 @@
 
 Instruções para geração do deploy:
 
-1. Instalar o grunt:
+1. Instalar o grunt e o mocha:
 
 ```
-$ npm install grunt -g
+$ npm install grunt mocha -g
 ```
 
 2. Instalar as dependencias:
@@ -18,6 +18,12 @@ $ npm install
 
 ```
 $ grunt
+```
+
+4. Executar testes na API:
+
+```
+$ mocha
 ```
 
 No final do processo o servidor web incorporado estará rodando no endereço:

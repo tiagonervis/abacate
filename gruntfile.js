@@ -1,15 +1,19 @@
 module.exports = function(grunt) {
 
+  //Obtem o parametro urlbase
   var url_base = grunt.option('urlbase') || '/';
 
+  //Configuracao do grunt
   grunt.initConfig({
 
+    //Apaga a pasta dist
     clean: {
       dist: {
         src: ['dist']
       }
     },
 
+    //Minifica arquivos js
     uglify: {
       options: {
         mangle: false
@@ -37,6 +41,7 @@ module.exports = function(grunt) {
       }
     },
 
+    //Concatena css
     concat_css: {
       all: {
         src: ['css/bootstrap.min.css', 'css/custom.css'],
@@ -44,6 +49,7 @@ module.exports = function(grunt) {
       }
     },
 
+    //Processa tags no html da index
     processhtml: {
       options: {
         data: {
@@ -57,6 +63,7 @@ module.exports = function(grunt) {
       }
     },
 
+    //Minifica html
     htmlmin: {
       dist: {
         options: {
@@ -72,6 +79,7 @@ module.exports = function(grunt) {
       }
     },
 
+    //Copia arquivos estaticos
     copy: {
       dist: {
         files: [
@@ -82,15 +90,17 @@ module.exports = function(grunt) {
       }
     },
 
+    //Executa servidor na pasta dist
     run: {
       options: {},
       dist: {
         cmd: 'node',
-        args: ['servidor.js']
+        args: ['express.js']
       }
     }
   });
 
+  //Define modulos do grunt
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-concat-css');
@@ -98,6 +108,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-run');
+
+  //Configura sequencia de execucao
   grunt.registerTask("default", [
     'clean:dist',
     'uglify:dist',

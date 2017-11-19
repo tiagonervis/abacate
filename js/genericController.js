@@ -82,6 +82,35 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
           }
         });
 
+        //Se filtro esta ativo
+        if ($scope.model.filtros !== undefined && $scope.model.filtros.ativo) {
+
+          //Inicia array de filtros na view
+          $scope.view.filtros = [];
+
+          //Percorre todos os campos do model
+          for (var i in $scope.model.campos) {
+
+            //Variavel para campo atual
+            var atual = $scope.model.campos[i];
+
+            if (atual.tipo === 'select' || atual.tipo === 'checkbox') {
+
+              //Cria objeto local
+              var obj = {};
+
+              //Define campo nao incluido
+              obj.incluir = false;
+
+              //Copia campo do model
+              obj.campo = angular.copy(atual, obj.campo);
+
+              //Insere objeto no array de filtros
+              $scope.view.filtros.push(obj);
+            }
+          }
+        }
+
         //Caso de erro
       } else {
 
@@ -138,6 +167,27 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
 
       //Insere campo ordenado e ordem na url
       url += '&atributoOrdenado=' + $scope.ordenacao.campo + '&ordem=' + ordem;
+    }
+
+    //Se filtro esta ativo
+    if ($scope.model.filtros !== undefined && $scope.model.filtros.ativo) {
+
+      //Percorre filtros
+      for (var i in $scope.view.filtros) {
+
+        //Define filtro atual
+        let filtro = $scope.view.filtros[i];
+
+        //Se deve usar esse filtro
+        if (filtro.filtrar) {
+
+          //Insere filtro no objeto de pesquisa
+          obj[filtro.campo.campo] = filtro.valor;
+        }
+      }
+
+      //Fecha modal de filtros
+      $('#modal-filtros').modal('hide');
     }
 
     //Chama api passando url do model e campo de pesquisa
@@ -227,6 +277,39 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
               //Separa campo da hora
               $scope.view.selecionado[atual.campo+'-hora'] = campo.split('T')[1].split('.')[0];
             }
+          }
+        }
+      }
+
+    //Se for um novo registro
+    } else {
+
+      //Percorre lista de campos
+      for (var i in $scope.model.campos) {
+
+        //Variavel local para o campo
+        let atual = $scope.model.campos[i];
+
+        //Se for um campo tipo date
+        if ((atual.tipo === 'datetime' || atual.tipo === "date") && atual.iniciar) {
+
+          //Obtem data e hora atual
+          let agora = new Date();
+
+          //Obtem a data e hora descontando diferenca do fuso horario
+          agora = new Date(agora.getTime() - agora.getTimezoneOffset() * 60 * 1000);
+
+          //Define data no campo
+          $scope.view.selecionado[atual.campo] = agora.toISOString();
+
+          //Se for tipo datetime
+          if (atual.tipo === 'datetime') {
+
+            //Variavel para campo atual
+            let campo = $scope.view.selecionado[atual.campo];
+
+            //Separa campo da hora
+            $scope.view.selecionado[atual.campo+'-hora'] = campo.split('T')[1].split('.')[0];
           }
         }
       }
@@ -362,6 +445,50 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
 
     //Atualiza lista de registros
     $scope.listar();
+  };
+
+  //Metodo para obter a descricao de varios campos de um objeto
+  $scope.descricao = function(item, atual) {
+
+    //Se descricao for de mais de um campo
+    if (typeof(atual.descricao) === 'object') {
+
+      //Inicia variavel para armazenar descricao final
+      var descricao = "";
+
+      //Percorre array de campos
+      for (var i in atual.descricao) {
+
+        //Separa os campos que sao dos filhos
+        var campos = atual.descricao[i].split('.');
+
+        //Variavel para armazenar expressao
+        var expressao = "";
+
+        //Percorre campos
+        for (var c in campos) {
+
+          //Monta expressao
+          expressao += "['" + campos[c] + "']";
+        }
+
+        //Obtem a descricao atraves da epressao montada
+        descricao += eval("item" + expressao);
+
+        //Verifica se deve inserir o separador
+        if (i < atual.descricao.length-1) {
+
+          //Insere separador na descricao
+          descricao += atual.separador;
+        }
+      }
+
+      //Retorna descricao final
+      return descricao;
+    }
+
+    //Se for apenas um campo retorna campo informado na descricao
+    return item[atual.descricao];
   };
 
   //Metodo para abrir modal para imprimir relatorio

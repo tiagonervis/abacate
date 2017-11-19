@@ -33,6 +33,10 @@ O conteúdo do arquivo é composto por um cabeçalho e um array de campos:
     "texto": "Imprimir",
     "titulo": "Relatório de usuários",
     "entidade": "RegistroLog"
+  },
+  "filtros": {
+    "ativo": true,
+    "titulo": "Filtro da busca"
   },  
   "editar": true,
   "excluir": true,   
@@ -80,6 +84,9 @@ Segue abaixo a relação de todos os campos possíveis no cabeçalho:
   - texto - Texto exibido dentro do botão imprimir
   - titulo - Titulo da janela exibida para selecionar opções do relatório
   - entidade - Nome da entidade (classe java) que será usada para gerar o relatório
+* filtros - objeto contendo iformações relacionadas ao botão filtrar
+  - ativo - Exibe/Oculta o botão filtrar
+  - titulo - Titulo da janela exibida para selecionar opções de filtragem
 * editar - Exibe/Oculta botão para editar
 * excluir - Exibe/Oculta botão para excluir  
 * abas - Objeto OPCIONAL para exibir abas na modal  
@@ -105,7 +112,8 @@ OBS: alguns campos se aplicam apenas a um tipo específico de campo.
 * url - Url da API para carregar lista de registros no tipo select ou table
 * lista - Nome da variavel que vai receber a lista de registros no tipo select
 * chave - Nome do campo chave do objeto
-* descricao - Campo que deve ser exibido na tabela e no campo no tipo select
+* descricao - Nome do campo ou array com nomes que deve ser exibido na tabela e no campo no tipo select
+* separador - O texto que separa um campo do outro quando o campo descricao for um array de varios campos
 * aba - Número da aba ao qual o campo pertence (Somente se possuir o objeto abas configurado)
 * arquivo - Nome da variavel que vai receber o objeto File lido no tipo image
 * parametro - Nome do campo que será inserido na url das consultas quando for tipo table

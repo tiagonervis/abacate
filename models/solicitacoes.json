@@ -23,6 +23,10 @@
     "titulo": "Relatório de solicitações",
     "entidade": "Solicitacao"
   },
+  "filtros": {
+    "ativo": true,
+    "titulo": "Filtro da busca"
+  },
   "editar": true,
   "excluir": true,
   "abas": {
@@ -34,7 +38,7 @@
       },
       {
         "id": 2,
-        "texto": "Fechamento"
+        "texto": "Atendimento"
       }
     ]
   },
@@ -58,6 +62,7 @@
       "editavel": true,
       "listar": true,
       "formato": "dd/MM/yyyy HH:mm:ss",
+      "iniciar": true,
       "aba": 1
     },
     {
@@ -71,7 +76,8 @@
       "url": "pontos",
       "lista": "pontos",
       "chave": "id",
-      "descricao": "codPonto",
+      "descricao": ["codPonto", "local.local", "sala"],
+      "separador": " - ",
       "aba": 1
     },
     {
@@ -103,8 +109,19 @@
       "aba": 1
     },
     {
+      "campo": "observacoes",
+      "nome": "Observações",
+      "tipo": "textarea",
+      "visivel": true,
+      "requerido": false,
+      "editavel": true,
+      "listar": false,
+      "linhas": 2,
+      "aba": 1
+    },
+    {
       "campo": "fechamento",
-      "nome": "Data de fechamento",
+      "nome": "Data de atendimento",
       "tipo": "datetime",
       "visivel": true,
       "requerido": false,
@@ -115,7 +132,7 @@
     },
     {
       "campo": "responsavelFechamento",
-      "nome": "Resp. Fechamento",
+      "nome": "Resp. Atendimento",
       "tipo": "select",
       "visivel": true,
       "requerido": false,
@@ -140,7 +157,7 @@
     },
     {
       "campo": "fechado",
-      "nome": "Fechado",
+      "nome": "Atendido",
       "tipo": "checkbox",
       "visivel": true,
       "requerido": false,

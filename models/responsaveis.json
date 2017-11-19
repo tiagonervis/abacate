@@ -63,9 +63,9 @@
       "campo": "senha",
       "nome": "Senha",
       "tipo": "password",
-      "visivel": true,
-      "requerido": true,
-      "editavel": true,
+      "visivel": false,
+      "requerido": false,
+      "editavel": false,
       "listar": false
     },
     {

@@ -19,6 +19,10 @@
     "titulo": "Relatório de pontos de rede",
     "entidade": "Ponto"
   },
+  "filtros": {
+    "ativo": true,
+    "titulo": "Filtro da busca"
+  },
   "editar": true,
   "excluir": true,
   "abas": {
