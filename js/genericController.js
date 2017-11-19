@@ -526,6 +526,13 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
 
         //Define nome do campo e nome do atributo a exibir
         obj.campo = atual.campo + '.' +  atual.descricao;
+
+        //Se decricao for um array
+        if (typeof(atual.descricao) === 'object') {
+
+          //Define nome do campo e nome do atributo a exibir do primeiro campo
+          obj.campo = atual.campo + '.' +  atual.descricao[0];
+        }
       }
 
       //Insere objeto no array de campos
