@@ -86,6 +86,7 @@ module.exports = function(grunt) {
           {expand: true, src: ['img/**'], dest: 'dist/'},
           {expand: true, src: ['fonts/**'], dest: 'dist/'},
           {expand: true, src: ['models/**'], dest: 'dist/'},
+          {expand: true, src: ['manifest.json'], dest: 'dist/'}
         ]
       }
     },
