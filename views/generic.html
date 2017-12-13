@@ -6,6 +6,9 @@
       <div class="input-group">
         <input type="text" class="form-control" placeholder="{{model.busca.texto}}" ng-model="view.pesquisa" ng-change=listar()>
         <span class="input-group-btn">
+          <button class="btn btn-default" type="button"ng-if="model.filtros.ativo" data-toggle="modal" data-target="#modal-filtros">
+            <span class="glyphicon glyphicon-filter"></span>
+          </button>
           <button class="btn btn-default" type="button" ng-click="listar()">
             <span class="glyphicon glyphicon-search"></span>
           </button>
