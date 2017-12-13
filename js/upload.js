@@ -38,12 +38,35 @@ function upload(e) {
     //Ao carregar imagem
     img.onload = function() {
 
+      //Define largura maxima
+      var largura = 1000;
+
+      //Define altura maxima
+      var altura = 700;
+
+      //Inicia fator de divisao em 1
+      var divisor = 1;
+
+      //Se a largura for maior que o maximo
+      if (img.width > largura) {
+
+        //Calcula fator de divisao com base na largura
+        divisor = img.width / largura;
+      }
+
+      //Se a altura aplicando divisor for maior que o maximo
+      if ((img.height / divisor) > altura) {
+
+        //Calcula faotr de divisao com base na altura
+        divisor = img.height / altura;
+      }
+
       //Define tamanho do canvas com base na imagem
-      canvas.width = img.width;
-      canvas.height = img.height;
+      canvas.width = img.width / divisor;
+      canvas.height = img.height / divisor;
 
       //Desenha imagem no canvas
-      context.drawImage(img, 0, 0);
+      context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
 
       //Obtem conteudo do canvas em jpeg
       var jpg = canvas.toDataURL("image/jpeg", 0.7);
