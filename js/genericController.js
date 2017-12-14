@@ -47,6 +47,9 @@ app.controller("genericController", function($scope, $routeParams, $http, $q, $l
         //Exibe conteudo da view
         $scope.carregado = true;
 
+        //Define o titulo do model no objeto global
+        $scope.botoes.titulo = $scope.model.titulo;
+
         //Oculta botao de novo
         $scope.botoes.novo = false;
 

@@ -8,6 +8,7 @@
           <span class="icon-bar"></span>
         </button>
         <span class="visible-xs">
+          <span id="titulo-topo">{{botoes.titulo}}</span>
           <button type="button" class="navbar-toggle" ng-click="botoes.busca=!botoes.busca">
             <span ng-if="!botoes.busca" class="glyphicon glyphicon-search"></span>
             <span ng-if="botoes.busca" class="glyphicon glyphicon-remove"></span>
@@ -17,8 +18,10 @@
           </button>
         </span>
       </span>
-      <img alt="Logo" src="img/logo.png" class="navbar-brand" />
-      <span class="navbar-brand">Abacate</span>
+      <span class="hidden-xs">
+        <img alt="Logo" src="img/logo.png" class="navbar-brand" />
+        <span class="navbar-brand">Abacate</span>
+      </span>
     </div>
     <div class="collapse navbar-collapse" id="menu" ng-if="sessao.logado">
       <ul class="nav navbar-nav">

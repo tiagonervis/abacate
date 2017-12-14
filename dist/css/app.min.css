@@ -60,6 +60,7 @@ input, select, textarea {
 .navbar-toggle {
   border: 0;
   color: white;
+  margin-right: 8px;
 }
 
 .navbar-toggle:focus {
@@ -346,4 +347,29 @@ input, select, textarea {
   padding-bottom: 5px;
   background-color: #293744;
   z-index: 10;
+}
+
+#titulo-topo {
+  display: inline-block;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  margin-top: 14px;
+  margin-left: 8px;
+}
+
+@media (max-width: 767px) {
+
+  body {
+    padding-top: 54px;
+  }
+
+  .table-responsive {
+    border: 0;
+  }
+
+  .tabela {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }

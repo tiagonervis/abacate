@@ -1,6 +1,6 @@
 {
   "titulo": "Situações dos pontos",
-  "titulo_modal": "Cadastro de situações dos pontos",
+  "titulo_modal": "Cadastro de situação do ponto",
   "url": "situacoes",
   "chave": "id",
   "busca": {
