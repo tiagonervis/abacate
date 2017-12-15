@@ -4,7 +4,7 @@
     <!--CAMPO BUSCA NO CELULAR-->
     <div id="busca-responsiva" ng-hide="!botoes.busca">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="{{model.busca.texto}}" ng-model="view.pesquisa" ng-change=listar()>
+        <input type="text" class="form-control" placeholder="{{model.busca.texto}}" ng-model="view.pesquisa" ng-change="listar()" ng-model-options="{debounce: 500}">
         <span class="input-group-btn">
           <button class="btn btn-default" type="button"ng-if="model.filtros.ativo" data-toggle="modal" data-target="#modal-filtros">
             <span class="glyphicon glyphicon-filter"></span>
